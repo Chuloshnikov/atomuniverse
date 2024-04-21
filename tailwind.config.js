@@ -27,11 +27,10 @@ const config: Config = {
         bannerShadow: "0 1px 2px 1px #00000026"
       },
       colors: {
-        mainBg: "#FDF8F0",
-        accentBg: "#582434",
-        smouthText: "#B56767",
-        accentBg2: "#B56774",
-        ahornBg: "#EEE7F0",
+        mainBg: "#252627",
+        accentBg: "#EF7533",
+        mainText: "#A7A5AD",
+        smouthText: "#ff8a28",
       }
     },
   },
