@@ -7,3 +7,13 @@ body {
   background-color: #252627;
   color: #A7A5AD;
 }
+
+
+
+.nav-link {
+    transition: transform 0.2s ease !important;
+  }
+.nav-link:hover {
+  color: #ff8a28;
+  transform: translateX(4px) !important;
+}
