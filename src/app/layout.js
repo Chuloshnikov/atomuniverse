@@ -1,5 +1,6 @@
 import { Lato } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/header/Header";
 
 const lato = Lato({ 
   weight: ['100', '300', '400', '700', '900'],
@@ -16,7 +17,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
         <body className={lato.className}>
           <main className="max-w-7xl mx-auto">
-            {children}
+            <Header/>
+              {children}
           </main>
         </body>
     </html>
