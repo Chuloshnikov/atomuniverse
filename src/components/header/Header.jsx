@@ -23,7 +23,7 @@ const Header = () => {
         <Logo />
         {windowWidth >= 960 && <DesktopHeaderNavLinks/>}
       </nav>
-      <button className="bg-accentBg px-4 py-2 text-white rounded-lg mr-4 hidden lg:block">Log in</button>
+      <button className="bg-accentBg hover:bg-smouthText duration-200 px-4 py-2 text-white rounded-lg mr-4 hidden lg:block font-semibold">Log in</button>
       <TiThMenuOutline className="text-accentBg w-7 h-7 lg:hidden mr-4"/>
     </header>
   );
