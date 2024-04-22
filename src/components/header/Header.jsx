@@ -34,7 +34,7 @@ const Header = () => {
       <button 
       onClick={handleLoginToggle}
       className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
-       text-white rounded-md mr-4 hidden lg:block font-semibold ">
+       text-white rounded-md mr-4 hidden lg:block font-semibold">
           Log in
       </button>
       <TiThMenuOutline className="text-accentBg w-7 h-7 lg:hidden mr-4"/>
