@@ -33,8 +33,8 @@ const Header = () => {
       </nav>
       <button 
       onClick={handleLoginToggle}
-      className="bg-accentBg hover:bg-smouthText duration-200 px-4 py-2
-       text-white rounded-lg mr-4 hidden lg:block font-semibold shadow-md">
+      className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
+       text-white rounded-md mr-4 hidden lg:block font-semibold ">
           Log in
       </button>
       <TiThMenuOutline className="text-accentBg w-7 h-7 lg:hidden mr-4"/>
@@ -45,7 +45,7 @@ const Header = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.2 }}
-            className="popup absolute right-5 top-5"
+            className="popup absolute right-4 top-5"
           >
             <SignInPopup toggle={handleLoginToggle}/>
           </motion.div>

@@ -3,9 +3,21 @@
 @tailwind utilities;
 
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #252627;
   color: #A7A5AD;
+}
+
+label {
+  @apply text-sm 
+}
+
+label + input {
+  margin-top: -4px;
 }
 
 
@@ -17,3 +29,22 @@ body {
   color: #ff8a28;
   transform: translateX(4px) !important;
 }
+
+.popup-content {
+  background-color: #252627;
+  -webkit-box-shadow: 0px -1px 5px 3px rgba(255,138,40,0.38);
+  -moz-box-shadow: 0px -1px 5px 3px rgba(255,138,40,0.38);
+  box-shadow: 0px -1px 5px 3px rgba(255,138,40,0.38);
+  border-radius: 6px;
+}
+
+.shadow-button {
+  transition-duration: 200ms;
+}
+
+.shadow-button:hover {
+  -webkit-box-shadow: 0px -1px 5px 3px rgba(255,138,40,0.38);
+  -moz-box-shadow: 0px -1px 5px 3px rgba(255,138,40,0.38);
+  box-shadow: 0px -1px 5px 3px rgba(255,138,40,0.38);
+}
+
