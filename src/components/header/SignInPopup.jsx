@@ -30,15 +30,16 @@ const SignInPopup = ({toggle}) => {
             />
             <div className="mt-2 flex">
                 <button 
+                onClick={toggle} 
                 className="shadow-button bg-accentBg hover:bg-smouthText 
                 px-4 py-2 text-white rounded-md mr-4 hidden lg:block 
                 font-semibold text-white" 
                 type="submit"
                 >
-                    Submit
+                    Login
                 </button>
                 <div className="-mt-2 w-full flex justify-end">
-                    <Link href={'/'}>Register</Link>
+                    <Link onClick={toggle}  href={'/register'}>Register</Link>
                 </div>
                
             </div>
