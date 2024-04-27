@@ -67,7 +67,6 @@ const Header = () => {
                 <SignInPopup toggle={handleLoginToggle}/>
               </div>
             </div>
-           
           </motion.div>
         )}
       </AnimatePresence>

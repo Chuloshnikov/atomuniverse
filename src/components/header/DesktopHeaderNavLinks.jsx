@@ -19,4 +19,4 @@ const DesktopHeaderNavLinks = () => {
   )
 }
 
-export default DesktopHeaderNavLinks
+export default DesktopHeaderNavLinks;
