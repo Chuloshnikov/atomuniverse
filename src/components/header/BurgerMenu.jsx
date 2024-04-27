@@ -11,7 +11,7 @@ const BurgerMenu = ({ toggle }) => {
                 <FaWindowClose className=" h-7 w-7 text-accentBg hover:text-smouthText duration-200"/>
             </button>
         </div>
-           <ul className="flex flex-col gap-4 mt-4">
+           <ul onClick={toggle} className="flex flex-col gap-4 mt-4">
                 <li><Link href={'/'}>marketplace</Link></li>
                 <li><Link href={'/'}>learn</Link></li>
                 <li><Link href={'/'}>community</Link></li>
@@ -24,9 +24,9 @@ const BurgerMenu = ({ toggle }) => {
                 >
                     Log in
                 </button>
-                <button className="text-md">
+                <Link onClick={toggle}  href={'/register'} className="text-md">
                     Register
-                </button>
+                </Link>
            </div>
         </div>
     </div>
