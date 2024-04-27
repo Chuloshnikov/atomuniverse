@@ -1,9 +1,11 @@
 "use client"
-import { useState } from 'react'
+import { useState } from 'react';
+import Image from 'next/image';
+import {mrhouse} from "../../assets/images";
 
 const RegisterPage = () => {
   return (
-    <div>
+    <div className=''>
         <form className='block max-w-xl mx-4 mdl:mx-auto'>
         <label>Name:</label>
             <input 
@@ -32,6 +34,14 @@ const RegisterPage = () => {
                 </button>
             </div>
         </form>
+        <div className='block max-w-xl mx-4 mdl:mx-auto mt-8'>
+            <div className='rounded-full max-w-[300px] max-h-[300px] overflow-hidden'>
+                <Image src={mrhouse} width={500} height={500} alt={"mr house"}/>
+            </div>
+            <div className='rounded-full max-w-[300px] max-h-[300px] overflow-hidden'>
+
+            </div>
+        </div>
     </div>
   )
 }
