@@ -1,7 +1,8 @@
 "use client"
 import { useState } from 'react';
 import Image from 'next/image';
-import {mrhouse} from "../../assets/images";
+import { mrhouse, atomcard } from "../../assets/images";
+import { tone0 } from "../../assets/svg";
 
 const RegisterPage = () => {
   return (
@@ -34,12 +35,13 @@ const RegisterPage = () => {
                 </button>
             </div>
         </form>
-        <div className='block max-w-xl mx-4 mdl:mx-auto mt-8'>
-            <div className='rounded-full max-w-[300px] max-h-[300px] overflow-hidden'>
+        <div className='relative block max-w-xl mx-4 mdl:mx-auto mt-8 flex flex-col mdl:flex-row'>
+            <div className='z-10 rounded-full max-w-[300px] max-h-[300px] overflow-hidden'>
                 <Image src={mrhouse} width={500} height={500} alt={"mr house"}/>
             </div>
-            <div className='rounded-full max-w-[300px] max-h-[300px] overflow-hidden'>
-
+            <div className='top-2 right-2 absolute max-w-[300px] max-h-[300px] overflow-hidden'>
+                <Image className='z-5' src={tone0} width={500} height={500} alt={"atom"}/>
+                <Image className='z-1 border-accentBg border-2 rounded-xl -mt-5' src={atomcard} width={200} height={100} alt={"atomcard"}/>
             </div>
         </div>
     </div>
