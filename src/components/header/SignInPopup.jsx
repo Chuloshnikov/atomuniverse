@@ -13,11 +13,6 @@ const SignInPopup = ({toggle}) => {
             </button>
         </div>
         <form className="w-[300px] p-2">
-            <label>Name:</label>
-            <input 
-            className="w-full bg-mainBg border-2 border-accentBg text-smouthText rounded-md focus:border-smouthText dark:focus:ring-smouthText focus:ring-1 focus:outline-none focus:ring-smouthText"
-            type="text"
-            />
              <label>Email:</label>
             <input 
             className="w-full bg-mainBg border-2 border-accentBg text-smouthText rounded-md focus:border-smouthText dark:focus:ring-smouthText focus:ring-1 focus:outline-none focus:ring-smouthText"
