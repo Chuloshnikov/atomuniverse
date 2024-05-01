@@ -3,8 +3,10 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { mrhouse, atomcard } from "../../assets/images";
 import { tone0 } from "../../assets/svg";
-import { redirect } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import {signIn, useSession} from "next-auth/react";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 
 
 const RegisterPage = () => {
@@ -15,6 +17,7 @@ const RegisterPage = () => {
     const [userCreated, setUserCreated] = useState(false);
     const [error, setError] = useState(false);
     const session = useSession();
+    const router = useRouter();
 
     if (session.status === "authenticated") {
         redirect('/');
@@ -36,9 +39,7 @@ const RegisterPage = () => {
             setEmail('');
             setName('');
             setPassword('');
-            setTimeout(() => {
-                redirect('/');
-            }, 4000);
+            setTimeout(() => router.push('/'), 2000);
         } else {
             setError(true);
         }
@@ -99,6 +100,25 @@ const RegisterPage = () => {
                 )}
             </div>
         </form>
+        <div className='flex gap-2 block max-w-xl mx-4 mdl:mx-auto mt-2'>
+            <button
+            onClick={() => signIn('google')}
+            className='w-full py-2 flex gap-1 justify-center items-center 
+            font-semibold border-2 bg-white text-black rounded-md
+            hover:bg-mainBg hover:text-mainText border-accentBg duration-300'
+            >
+                <span>Login with Google</span>
+                <FcGoogle/>
+            </button>
+            <button
+            className='w-full py-2 flex gap-1 justify-center items-center 
+            font-semibold border-2 bg-white text-black rounded-md
+            hover:bg-mainBg hover:text-mainText border-accentBg duration-300'
+            >
+                <span>Login with GitHub</span>
+                <FaGithub />
+            </button>
+        </div>
         <div>
         </div>
         <div className='relative block max-w-xl mx-4 mdl:mx-auto mt-8 flex flex-col mdl:flex-row'>
