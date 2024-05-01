@@ -22,7 +22,10 @@ const RegisterPage = () => {
 
 
     async function handleFormSubmit(e) {
-        e.preventDefault()
+        e.preventDefault();
+        setCreatingUser(true);
+        setError(false);
+        setUserCreated(false);
         const response = await fetch('/api/register', {
             method: 'POST',
             headers: {'Content-type': 'application/json'},
@@ -30,6 +33,12 @@ const RegisterPage = () => {
         });
         if (response.ok) {
             setUserCreated(true);
+            setEmail('');
+            setName('');
+            setPassword('');
+            setTimeout(() => {
+                redirect('/');
+            }, 4000);
         } else {
             setError(true);
         }
@@ -63,35 +72,34 @@ const RegisterPage = () => {
             type="password"
             placeholder='password'
             />
-            <div className="mt-2 flex">
+            <div className="mt-2 flex items-center">
                 <button 
                
                 className="shadow-button bg-accentBg hover:bg-smouthText 
                 px-4 py-2 text-white rounded-md mr-4 
                 font-semibold text-white" 
                 type="submit"
+                disabled={creatingUser}
                 >
                     Register
                 </button>
+                {userCreated && (
+                        <p
+                        className="text-center text-green-600"
+                        >
+                            User created. Now you can login
+                        </p>
+                )}
+                {error && (
+                    <p
+                    className="text-center text-red-600"
+                    >
+                        An error has occurred. Please try again later
+                    </p>
+                )}
             </div>
         </form>
         <div>
-        {userCreated && (
-            <div
-            className="my-4 text-center text-green-600"
-            >
-                User created.<br/>
-                Now you can Login
-            </div>
-        )}
-        {error && (
-             <div
-             className="my-4 text-center text-red-600"
-             >
-                An error has occurred.<br/>
-                 Please try again later
-             </div>
-        )}
         </div>
         <div className='relative block max-w-xl mx-4 mdl:mx-auto mt-8 flex flex-col mdl:flex-row'>
             <div className='z-10 rounded-full max-w-[300px] max-h-[300px] overflow-hidden'>
