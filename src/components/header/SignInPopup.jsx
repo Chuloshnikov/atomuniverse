@@ -79,11 +79,14 @@ const SignInPopup = ({toggle}) => {
             </div>
         </form>
         <div className="p-2">
-            <button className="flex gap-1 items-center">
+            <button 
+            onClick={() => signIn('google')}
+            className="flex gap-1 items-center hover:text-smouthText duration-300"
+            >
                 <FaGooglePlusSquare /> 
                 <span>Login with Google</span>
             </button>
-            <button className="flex gap-1 items-center">
+            <button className="flex gap-1 items-center hover:text-smouthText duration-300">
                 <FaSquareGithub />
                 <span>Login with Github</span>
             </button>

@@ -3,11 +3,12 @@ import {useState, useEffect} from "react";
 import Link from "next/link";
 import Logo from "./Logo";
 import { TiThMenuOutline } from "react-icons/ti";
+import { FaHouseUser } from "react-icons/fa";
 import DesktopHeaderNavLinks from "./DesktopHeaderNavLinks";
 import { motion, AnimatePresence } from 'framer-motion';
 import SignInPopup from "./SignInPopup";
 import BurgerMenu from "./BurgerMenu";
-import {signIn, signOut, useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 const Header = () => {
     const [windowWidth, setWindowWidth] = useState(undefined);
@@ -16,10 +17,31 @@ const Header = () => {
     const [openRegisterPopup, setOpenRegisterPopup] = useState(false);
     const session = useSession();
     const status = session?.status;
+    const userData = session.data?.user;
+    let userName = userData?.name || userData?.email;
+    if (userName && userName.includes(" ")) {
+        userName = userName.split(' ')[0];
+    }
 
     useEffect(() => {
         setWindowWidth(window?.innerWidth);
     }, []);
+
+    const gmailCredentials = userData?.email.indexOf("gmail");
+
+    useEffect(() => {
+      if (gmailCredentials) {
+        fetch('/api/profile', {
+          method: 'POST',
+          headers: {'Content-type': 'application/json'},
+          body: JSON.stringify({
+              email: userData.email,
+              name: userData.name,
+              image: userData.image,
+          }),
+      });
+      }
+    },[gmailCredentials]);
 
     const handleMenuToggle = () => {
         setOpenBurgerMenu(!openBurgerMenu);
@@ -46,12 +68,23 @@ const Header = () => {
         {windowWidth >= 960 && <DesktopHeaderNavLinks/>}
       </nav>
       {status === 'authenticated' && (
-         <button 
-         onClick={() => signOut()}
-         className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
-          text-white rounded-md mr-4 hidden lg:block font-semibold">
-             Log out
-         </button>
+        <div className="flex items-center gap-2">
+               <Link 
+                href={'/profile'} 
+                className='flex flex-col-reverse items-center'
+                >
+                    <span className='hidden md:block whitespace-nowrap'>{userName}</span>
+                    <FaHouseUser className='h-8 w-8 text-primary'/>
+                </Link>
+              <button 
+                onClick={() => signOut()}
+                className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
+              text-white rounded-md mr-4 hidden lg:block font-semibold"
+              >
+                  Log out
+              </button>
+        </div>
+        
       )}
       {status === 'unauthenticated' && (
         <button 
