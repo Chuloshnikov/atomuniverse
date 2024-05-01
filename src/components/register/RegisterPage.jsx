@@ -16,6 +16,10 @@ const RegisterPage = () => {
     const [error, setError] = useState(false);
     const session = useSession();
 
+    if (session.status === "authenticated") {
+        redirect('/');
+    }
+
 
     async function handleFormSubmit(e) {
         e.preventDefault()
@@ -71,6 +75,24 @@ const RegisterPage = () => {
                 </button>
             </div>
         </form>
+        <div>
+        {userCreated && (
+            <div
+            className="my-4 text-center text-green-600"
+            >
+                User created.<br/>
+                Now you can Login
+            </div>
+        )}
+        {error && (
+             <div
+             className="my-4 text-center text-red-600"
+             >
+                An error has occurred.<br/>
+                 Please try again later
+             </div>
+        )}
+        </div>
         <div className='relative block max-w-xl mx-4 mdl:mx-auto mt-8 flex flex-col mdl:flex-row'>
             <div className='z-10 rounded-full max-w-[300px] max-h-[300px] overflow-hidden'>
                 <Image src={mrhouse} width={500} height={500} alt={"mr house"}/>
