@@ -26,6 +26,7 @@ export const authOptions = {
       },
       async authorize(credentials, req) {
         await dbConnect().catch(error => { error: "Connection Failed...!"});
+        console.log(credentials);
         const email = credentials?.email;
         const password = credentials?.password;
 

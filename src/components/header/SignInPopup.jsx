@@ -5,7 +5,7 @@ import { FaWindowClose } from "react-icons/fa";
 import { FaGooglePlusSquare } from "react-icons/fa";
 import { FaSquareGithub } from "react-icons/fa6";
 import {signIn, useSession } from "next-auth/react";
-import { redirect } from 'next/navigation'
+import { redirect } from 'next/navigation';
 
 const SignInPopup = ({toggle}) => {
     const [email, setEmail] = useState('');
@@ -13,6 +13,7 @@ const SignInPopup = ({toggle}) => {
     const [loginInProgress, setLoginInProgress] = useState(false);
     const [error, setError] = useState('');
     const session = useSession();
+    const status = session?.status;
     console.log(session.status)
 
     if (session.status === "authenticated") {
@@ -46,15 +47,19 @@ const SignInPopup = ({toggle}) => {
         >
              <label>Email:</label>
             <input 
+            onChange={e => setEmail(e.target.value)}
             className="w-full bg-mainBg border-2 border-accentBg text-smouthText rounded-md focus:border-smouthText dark:focus:ring-smouthText focus:ring-1 focus:outline-none focus:ring-smouthText"
             type="email"
             name="email"
+            value={email}
             />
             <label>Password:</label>
             <input 
+            onChange={e => setPassword(e.target.value)}
             className="w-full bg-mainBg border-2 border-accentBg text-smouthText rounded-md focus:border-smouthText dark:focus:ring-smouthText focus:ring-1 focus:outline-none focus:ring-smouthText"
             type="password"
             name="password"
+            value={password}
             />
             <div className="mt-2 flex">
                 <button 
@@ -73,7 +78,6 @@ const SignInPopup = ({toggle}) => {
                
             </div>
         </form>
-        
         <div className="p-2">
             <button className="flex gap-1 items-center">
                 <FaGooglePlusSquare /> 

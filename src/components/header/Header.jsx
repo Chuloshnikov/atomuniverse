@@ -7,12 +7,15 @@ import DesktopHeaderNavLinks from "./DesktopHeaderNavLinks";
 import { motion, AnimatePresence } from 'framer-motion';
 import SignInPopup from "./SignInPopup";
 import BurgerMenu from "./BurgerMenu";
+import {signIn, signOut, useSession } from "next-auth/react";
 
 const Header = () => {
     const [windowWidth, setWindowWidth] = useState(undefined);
     const [openBurgerMenu, setOpenBurgerMenu] = useState(false);
     const [openLoginPopup, setOpenLoginPopup] = useState(false);
     const [openRegisterPopup, setOpenRegisterPopup] = useState(false);
+    const session = useSession();
+    const status = session?.status;
 
     useEffect(() => {
         setWindowWidth(window?.innerWidth);
@@ -42,12 +45,30 @@ const Header = () => {
         <Logo />
         {windowWidth >= 960 && <DesktopHeaderNavLinks/>}
       </nav>
-      <button 
-      onClick={handleLoginToggle}
-      className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
-       text-white rounded-md mr-4 hidden lg:block font-semibold">
-          Log in
-      </button>
+      {status === 'authenticated' && (
+         <button 
+         onClick={() => signOut()}
+         className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
+          text-white rounded-md mr-4 hidden lg:block font-semibold">
+             Log out
+         </button>
+      )}
+      {status === 'unauthenticated' && (
+        <button 
+        onClick={handleLoginToggle}
+        className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
+         text-white rounded-md mr-4 hidden lg:block font-semibold">
+            Log in
+        </button>
+      )}
+      {status === 'loading' && (
+         <button 
+         onClick={handleLoginToggle}
+         className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
+          text-white rounded-md mr-4 hidden lg:block font-semibold">
+             Log in
+         </button>
+      )}
       {/* login menu start */}
       <AnimatePresence>
         {openLoginPopup && (
