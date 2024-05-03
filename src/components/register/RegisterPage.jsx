@@ -111,6 +111,7 @@ const RegisterPage = () => {
                 <FcGoogle/>
             </button>
             <button
+            onClick={() => signIn('github')}
             className='w-full py-2 flex gap-1 justify-center items-center 
             font-semibold border-2 bg-white text-black rounded-md
             hover:bg-mainBg hover:text-mainText border-accentBg duration-300'
