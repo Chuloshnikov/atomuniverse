@@ -4,7 +4,7 @@ import {useState} from "react";
 import { FaWindowClose } from "react-icons/fa";
 import { FaGooglePlusSquare } from "react-icons/fa";
 import { FaSquareGithub } from "react-icons/fa6";
-import {signIn, useSession } from "next-auth/react";
+import {signIn, signOut, useSession } from "next-auth/react";
 import { redirect } from 'next/navigation';
 
 const SignInPopup = ({toggle}) => {
@@ -62,6 +62,7 @@ const SignInPopup = ({toggle}) => {
             value={password}
             />
             <div className="mt-2 flex">
+                
                 <button 
                 onClick={toggle}
                 disabled={loginInProgress}

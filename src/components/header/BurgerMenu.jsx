@@ -1,8 +1,10 @@
 "use client"
 import Link from "next/link";
 import { FaWindowClose } from "react-icons/fa";
+import {signIn, signOut } from "next-auth/react";
 
-const BurgerMenu = ({ toggle }) => {
+const BurgerMenu = ({ toggle, status }) => {
+    console.log(status);
   return (
     <div className='popup-content mb-4'>
         <div className='p-4'>
@@ -17,7 +19,18 @@ const BurgerMenu = ({ toggle }) => {
                 <li><Link href={'/'}>community</Link></li>
                 <li><Link href={'/'}>tools</Link></li>
            </ul>
-           <div className="mt-4 flex gap-2">
+           {status === "authenticated" ? (
+           <div className="mt-4">
+           <button 
+           onClick={() => signOut()}
+           className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
+           text-white rounded-md mr-4 font-semibold"
+           >
+               Log out
+           </button>
+       </div>
+           ) : (
+            <div className="mt-4 flex gap-2 items-center">
                 <button 
                 className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
                 text-white rounded-md mr-4 font-semibold"
@@ -28,6 +41,7 @@ const BurgerMenu = ({ toggle }) => {
                     Register
                 </Link>
            </div>
+           )}
         </div>
     </div>
   )

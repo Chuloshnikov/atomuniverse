@@ -143,7 +143,7 @@ const Header = () => {
               <div 
               onClick={handleModalClick}
               className="absolute right-2 top-5 w-[300px] h-[500px]">
-                <BurgerMenu toggle={handleMenuToggle}/>
+                <BurgerMenu status={status} toggle={handleMenuToggle}/>
               </div>
             </div>
            
