@@ -50,7 +50,7 @@ const RegisterPage = () => {
     <div className=''>
         <form 
         onSubmit={handleFormSubmit}
-        className='block max-w-xl mx-4 mdl:mx-auto'
+        className='block max-w-xl mx-4 md:mx-auto'
         >
         <label>Name:</label>
             <input 
@@ -100,15 +100,15 @@ const RegisterPage = () => {
                 )}
             </div>
         </form>
-        <div className='flex gap-2 block max-w-xl mx-4 mdl:mx-auto mt-2'>
+        <div className='flex gap-2 block max-w-xl mx-4 md:mx-auto mt-2'>
             <button
             onClick={() => signIn('google')}
             className='w-full py-2 flex gap-1 justify-center items-center 
             font-semibold border-2 bg-white text-black rounded-md
             hover:bg-mainBg hover:text-mainText border-accentBg duration-300'
             >
-                <span>Login with Google</span>
-                <FcGoogle/>
+                <span className='hidden mdl:block'>Login with Google</span>
+                <FcGoogle className='xs:w-7 xs:h-7 mdl:w-5 mdl:h-5'/>
             </button>
             <button
             onClick={() => signIn('github')}
@@ -116,8 +116,8 @@ const RegisterPage = () => {
             font-semibold border-2 bg-white text-black rounded-md
             hover:bg-mainBg hover:text-mainText border-accentBg duration-300'
             >
-                <span>Login with GitHub</span>
-                <FaGithub />
+                <span className='hidden mdl:block'>Login with GitHub</span>
+                <FaGithub className='xs:w-7 xs:h-7 mdl:w-5 mdl:h-5'/>
             </button>
         </div>
         <div>
