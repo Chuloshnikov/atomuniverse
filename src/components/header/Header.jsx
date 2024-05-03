@@ -117,7 +117,7 @@ const Header = () => {
             className="absolute top-0 left-0 w-full h-full">
               <div 
               onClick={handleModalClick}
-              className="absolute right-4 top-5 w-[300px] h-[500px]">
+              className="absolute right-2 md:right-4 top-5 w-[300px] h-[500px]">
                 <SignInPopup toggle={handleLoginToggle}/>
               </div>
             </div>
@@ -143,7 +143,7 @@ const Header = () => {
               <div 
               onClick={handleModalClick}
               className="absolute right-2 top-5 w-[300px] h-[500px]">
-                <BurgerMenu status={status} toggle={handleMenuToggle}/>
+                <BurgerMenu status={status} toggle={handleMenuToggle} loginToggle={handleLoginToggle}/>
               </div>
             </div>
            
