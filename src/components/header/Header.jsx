@@ -110,7 +110,7 @@ const Header = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.2 }}
-            className="popup absolute top-0 left-0 w-full h-screen"
+            className="z-50 popup absolute top-0 left-0 w-full h-screen"
           >
             <div 
             onClick={handleLoginToggle}
@@ -135,7 +135,7 @@ const Header = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.2 }}
-            className="popup absolute top-0 left-0 w-full h-screen"
+            className="z-50 popup absolute top-0 left-0 w-full h-screen"
           >
             <div 
             onClick={handleMenuToggle}

@@ -12,7 +12,7 @@ const BurgerMenu = ({ toggle, loginToggle, status }) => {
 
 
   return (
-    <div className='popup-content mb-4'>
+    <div className='z-30 popup-content mb-4'>
         <div className='p-4'>
         <div className="p-2 flex justify-end">
             <button onClick={toggle}>
