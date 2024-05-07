@@ -1,8 +1,34 @@
 import mrhouse from "./mrhouse.png";
 import atomcard from "./atomcard.jpg";
+import herorobot from "./herorobot.png";
+import smartline from "./smartline.png";
+import robottec from "./robottec.png";
+import fauget from "./fauget.png";
+import labsify from "./labsify.png";
+import braintec from "./braintexh.png";
+import artificial from "./artificial.png";
+import borcelle from "./borcelle.png";
+import brainai from "./brainai.png";
+import impactesports from "./impactesports.png";
+import humantech from "./humantech.png";
+import creativeidea from "./creativeidea.png";
+import infinity from "./infinity.png"
 
 
 export {
   mrhouse,
   atomcard,
+  herorobot,
+  smartline,
+  robottec,
+  fauget,
+  labsify,
+  braintec,
+  artificial,
+  borcelle,
+  brainai,
+  impactesports,
+  humantech,
+  creativeidea,
+  infinity
 };
