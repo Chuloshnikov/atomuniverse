@@ -20,11 +20,11 @@ import {
 const HeroSection = () => {
   return (
     <div className='max-w-6xl mx-auto'>
-        <div className='max-w-full rounded-lg mt-12 mx-6 flex flex-col text-center mdl:text-left mdl:flex-row gap-10'>
-            <Image src={herorobot} layout='fil' alt='robot' className='rounded-lg'/>
+        <div className='max-w-full rounded-lg mt-12 mx-6 flex flex-col text-center mdl:text-left xl:flex-row gap-10'>
+            <Image src={herorobot} layout='fil' alt='robot' className='rounded-lg w-full'/>
             <div>
-                <h2 className='textShadow text-smouthText text-4xl top-1'>Atom Universe - Your key to the blockchain of the future.</h2>
-                <div className='mt-8 grid grid-cols-4 gap-6 flex-wrap max-w-[500px]'>
+                <h2 className='textShadow text-smouthText text-4xl top-1 mx-auto'>Atom Universe - Your key to the blockchain of the future.</h2>
+                <div className='mt-8 grid grid-cols-4 gap-6 flex-wrap max-w-[500px] pb-6 border-b-smouthText border-b-2 mx-auto'>
                     <Image src={smartline} width={100} height={100} alt='smartline'/>
                     <Image src={robottec} width={100} height={100} alt='robottec'/>
                     <Image src={fauget} width={100} height={100} alt='fauget'/>
