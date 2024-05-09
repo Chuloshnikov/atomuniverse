@@ -26,7 +26,7 @@ const HeroSection = () => {
             </div>
             <div className='xl:max-w-[50%] mx-auto'>
                 <h2 className='textShadow text-smouthText text-4xl top-1 mx-auto'>Atom Universe - Your key to the blockchain of the future.</h2>
-                <div className='mt-8 grid grid-cols-4 gap-6 flex-wrap max-w-[500px] pb-6 border-b-smouthText border-b-2 mx-auto'>
+                <div className='mt-8 grid grid-cols-4 gap-6 flex-wrap max-w-[500px] pb-4 border-b-smouthText border-b-2 mx-auto'>
                     <Image src={smartline} width={100} height={100} alt='smartline'/>
                     <Image src={robottec} width={100} height={100} alt='robottec'/>
                     <Image src={fauget} width={100} height={100} alt='fauget'/>
