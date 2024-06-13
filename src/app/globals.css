@@ -53,3 +53,33 @@ label + input {
   text-shadow: 2px 2px 3px rgba(239, 117, 51, 1);
   text-shadow: 4px 4px 7px rgb(17, 6, 1);
 }
+
+.rotatingGear1 {
+  animation: rotate 18s linear infinite; /* 4s - скорость анимации, linear - равномерное вращение, infinite - бесконечно */
+}
+
+.rotatingGear2 {
+  animation: rotate 28s linear infinite; /* 4s - скорость анимации, linear - равномерное вращение, infinite - бесконечно */
+}
+
+.rotatingGear3 {
+  animation: reverse-rotate 16s linear infinite; /* 4s - скорость анимации, linear - равномерное вращение, infinite - бесконечно */
+}
+
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes reverse-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
