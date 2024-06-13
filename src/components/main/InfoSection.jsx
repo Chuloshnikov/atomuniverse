@@ -14,10 +14,10 @@ const InfoSection = () => {
                 universe where everyone can freely create, share and interact.
                 </p>
           </div>
-          <div className="w-full xl:max-w-[50%] p-8 flex items-center justify-center">
-              <FaGear className="rotatingGear1 w-[200px] h-[200px] xl:w-[300px] xl:h-[300px text-smouthText"/>
-              <BsGearFill className="rotatingGear2 w-[200px] h-[200px] text-accentBg "/>
-              <BsGearWideConnected className="rotatingGear3 w-[200px] h-[200px] text-mainText"/>
+          <div className="w-full xl:max-w-[50%] p-8 flex items-center justify-center mx-auto">
+              <FaGear className="rotatingGear1 w-20 h-20 md:w-40 md:h-40 xl:w-[300px] xl:h-[300px] text-smouthText"/>
+              <BsGearFill className="rotatingGear2 w-20 h-20 md:w-40 md:h-40 xl:w-[200px] xl:h-[200px] text-accentBg"/>
+              <BsGearWideConnected className="rotatingGear3 w-20 h-20 md:w-40 md:h-40 xl:w-[200px] xl:h-[200px] text-mainText"/>
           </div>
         </div>
     </div>
