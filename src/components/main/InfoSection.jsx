@@ -1,17 +1,18 @@
 import { FaGear } from "react-icons/fa6";
 import { BsGearFill } from "react-icons/bs";
 import { BsGearWideConnected } from "react-icons/bs";
+import TypewriterEffect from "./TypeWriterEffect";
 
 const InfoSection = () => {
+  const text = "DDiscover a new world of possibilities with Atom Universe, the next-generation advanced blockchain. Our mission is to create a limitless, open and decentralized universe where everyone can freely create, share and interact."
   return (
     <div className="max-w-6xl mx-auto">
         <div className="mt-12 flex gap-2 flex-col xl:flex-row">
           <div className="w-full xl:w-[50%] text-center justify-center items-center">
               <p className="text-2xl py-4 px-6 leading-relaxed max-w-[600px] mx-auto xl:mt-12">
-                Discover a new world of possibilities with Atom Universe, 
-                the next-generation advanced blockchain. 
-                Our mission is to create a limitless, open and decentralized 
-                universe where everyone can freely create, share and interact.
+                <TypewriterEffect
+                text={text}
+                />
                 </p>
           </div>
           <div className="w-full xl:max-w-[50%] p-8 flex items-center justify-center mx-auto">
