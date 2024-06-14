@@ -7,7 +7,7 @@ const InfoSection = () => {
     <div className="max-w-6xl mx-auto">
         <div className="mt-12 flex gap-2 flex-col xl:flex-row">
           <div className="w-full xl:w-[50%] text-center justify-center items-center">
-              <p className="text-2xl py-4 px-6 leading-7 max-w-[600px] mx-auto xl:mt-8">
+              <p className="text-2xl py-4 px-6 leading-relaxed max-w-[600px] mx-auto xl:mt-12">
                 Discover a new world of possibilities with Atom Universe, 
                 the next-generation advanced blockchain. 
                 Our mission is to create a limitless, open and decentralized 
