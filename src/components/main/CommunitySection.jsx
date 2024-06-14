@@ -1,5 +1,10 @@
 import Image from "next/image";
 import { controlroom } from "@/assets/images";
+import { FaTelegram } from "react-icons/fa";
+import { RiWhatsappFill } from "react-icons/ri";
+import { FaFacebook } from "react-icons/fa";
+import { RiInstagramFill } from "react-icons/ri";
+import Link from "next/link";
 
 const CommunitySection = () => {
   return (
@@ -19,6 +24,12 @@ const CommunitySection = () => {
               <p className="text-xl px-6 leading-relaxed max-w-[600px] mx-auto">
                 Join us on this exciting journey. Together, we can create a future that deserves the world's attention. Discover Atom Universe - your key to a new digital world!
               </p>
+              <div className="mx-auto flex gap-1 items-center">
+                <Link href={'/telegram'}><FaTelegram className="w-7 h-7 text-blue-400"/></Link>
+                <Link href={'/whatsup'}><RiWhatsappFill className="w-7 h-7 text-green-400"/></Link>
+                <Link href={'/facebook'}><FaFacebook className="w-7 h-7 text-blue-500"/></Link>
+                <Link href={'/instagram'}><RiInstagramFill className="w-8 h-8 text-pink-400"/></Link>
+              </div>
           </div>
       </div>
     </div>
