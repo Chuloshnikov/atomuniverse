@@ -1,3 +1,4 @@
+import CommunitySection from "@/components/main/CommunitySection";
 import HeroSection from "@/components/main/HeroSection";
 import InfoSection from "@/components/main/InfoSection";
 import Image from "next/image";
@@ -7,6 +8,7 @@ export default function Home() {
    <section className="mt-8">
       <HeroSection/>
       <InfoSection/>
+      <CommunitySection/>
    </section>
   );
 }

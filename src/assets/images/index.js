@@ -13,6 +13,7 @@ import impactesports from "./impactesports.png";
 import humantech from "./humantech.png";
 import creativeidea from "./creativeidea.png";
 import infinity from "./infinity.png"
+import controlroom from "./controlroom.jpg";
 
 
 export {
@@ -30,5 +31,6 @@ export {
   impactesports,
   humantech,
   creativeidea,
-  infinity
+  infinity,
+  controlroom
 };
