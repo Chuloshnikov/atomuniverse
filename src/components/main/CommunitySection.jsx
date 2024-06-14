@@ -18,7 +18,7 @@ const CommunitySection = () => {
             <Image src={controlroom} width={600} height={1000} alt="controlroom"/>
           </div>
         </div>
-      <div className="w-full xl:w-[50%] flex flex-col gap-4 text-center">
+      <div className="w-full xl:w-[50%] flex flex-col gap-4 text-center min-h-[300px]">
               <p className="text-xl px-6 leading-relaxed max-w-[600px] mx-auto xl:mt-6">
                 <TypewriterEffect 
                 text={text1}
