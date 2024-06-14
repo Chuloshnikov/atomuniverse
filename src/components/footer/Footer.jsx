@@ -8,12 +8,12 @@ import { FaFacebookMessenger } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className='mt-12 w-full bg-black p-6'>
-      <div className="flex justify-between max-w-6xl mx-auto">
+      <div className="flex flex-col lg:flex-row items-center justify-between max-w-6xl mx-auto">
         <div className="px-4 py-12 flex flex-col gap-6">
           <FooterLogo/>
           <FooterInput/>
         </div>
-        <div className="flex gap-10 mt-12 mr-12">
+        <div className="flex gap-10 mt-12 mr-12 mx-auto">
           <div>
             <h6 className="text-lg font-semibold">Platform</h6>
               <ul className="mt-4">
