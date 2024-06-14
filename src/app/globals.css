@@ -12,8 +12,12 @@ body {
   color: #A7A5AD;
 }
 
+input {
+  @apply focus:outline-none focus:ring-0 focus:border-transparent;
+}
+
 label {
-  @apply text-sm 
+  @apply text-sm;
 }
 
 label + input {
