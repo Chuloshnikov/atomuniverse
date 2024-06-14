@@ -8,7 +8,7 @@ const InfoSection = () => {
   return (
     <div className="max-w-6xl mx-auto">
         <div className="mt-12 flex gap-2 flex-col xl:flex-row">
-          <div className="w-full xl:w-[50%] text-center justify-center items-center">
+          <div className="w-full xl:w-[50%] text-center justify-center items-center min-h-[300px]">
               <p className="text-2xl py-4 px-6 leading-relaxed max-w-[600px] mx-auto xl:mt-12">
                 <TypewriterEffect
                 text={text}
