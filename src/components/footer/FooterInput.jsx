@@ -6,7 +6,7 @@ const FooterInput = () => {
     <div>
         <h5 className='text-4xl'>Let’s stay in touch.</h5>
           <form 
-        className='border-[2px] mt-2 border-mainText border-2 rounded-3xl max-w-[377px] flex gap-2 items-center justify-between p-[1px]'
+        className='border-2 mt-2 border-mainText border-2 rounded-3xl max-w-[377px] flex gap-2 items-center justify-between p-[1px]'
         >
             <input
             className='text-sm lg:text-base text-black py-[2px] mdl:py-2 px-1 mdl:px-5 rounded-3xl bg-black w-full text-mainText'
