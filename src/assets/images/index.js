@@ -14,7 +14,7 @@ import humantech from "./humantech.png";
 import creativeidea from "./creativeidea.png";
 import infinity from "./infinity.png"
 import controlroom from "./controlroom.jpg";
-
+import explosion from "./explosion.jpg";
 
 export {
   mrhouse,
@@ -32,5 +32,6 @@ export {
   humantech,
   creativeidea,
   infinity,
-  controlroom
+  controlroom,
+  explosion
 };
