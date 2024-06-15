@@ -1,3 +1,4 @@
+import BlockchainPotentialSection from "@/components/learn/BlockchainPotentialSection"
 import TokenInfoSection from "@/components/learn/TokenInfoSection"
 import WelcomeSection from "@/components/learn/WelcomeSection"
 
@@ -7,6 +8,7 @@ export default function LearnPage() {
         <section className="mt-8">
             <WelcomeSection/>
             <TokenInfoSection/>
+            <BlockchainPotentialSection/>
         </section>
     )
 }
