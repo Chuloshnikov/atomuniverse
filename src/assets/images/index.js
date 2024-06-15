@@ -17,6 +17,7 @@ import controlroom from "./controlroom.jpg";
 import explosion from "./explosion.jpg";
 import atomictoken from "./AtomicToken.png";
 import blokchain from "./blockchain.jpg";
+import blockchainweb from "./blockchainweb.jpg";
 export {
   mrhouse,
   atomcard,
@@ -36,5 +37,6 @@ export {
   controlroom,
   explosion,
   atomictoken,
-  blokchain
+  blokchain,
+  blockchainweb
 };
