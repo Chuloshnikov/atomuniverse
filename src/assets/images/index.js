@@ -18,6 +18,9 @@ import explosion from "./explosion.jpg";
 import atomictoken from "./AtomicToken.png";
 import blokchain from "./blockchain.jpg";
 import blockchainweb from "./blockchainweb.jpg";
+import communityimage from "./community.jpg";
+
+
 export {
   mrhouse,
   atomcard,
@@ -38,5 +41,6 @@ export {
   explosion,
   atomictoken,
   blokchain,
-  blockchainweb
+  blockchainweb,
+  communityimage
 };
