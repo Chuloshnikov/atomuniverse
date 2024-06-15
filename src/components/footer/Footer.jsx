@@ -33,7 +33,7 @@ const Footer = () => {
           </div>
            <div>
               <h6 className="text-lg font-semibold">Socials</h6>
-              <div className="mt-4 flex gap-2">
+              <div className="mt-4 flex gap-2 items-center">
                   <Link
                   className="hover:text-smouthText duration-300" 
                   href={"/x"}

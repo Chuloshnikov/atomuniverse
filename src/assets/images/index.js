@@ -16,6 +16,7 @@ import infinity from "./infinity.png"
 import controlroom from "./controlroom.jpg";
 import explosion from "./explosion.jpg";
 import atomictoken from "./AtomicToken.png";
+import blokchain from "./blockchain.jpg";
 export {
   mrhouse,
   atomcard,
@@ -34,5 +35,6 @@ export {
   infinity,
   controlroom,
   explosion,
-  atomictoken
+  atomictoken,
+  blokchain
 };
