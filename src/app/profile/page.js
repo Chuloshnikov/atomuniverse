@@ -26,7 +26,7 @@ export default function ProfilePage() {
     return (
         <section className="mt-12">
             <form className=",ax-w-xs mx-auto">
-
+                    profile
             </form>
         </section>
     )
