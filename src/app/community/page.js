@@ -3,9 +3,9 @@ import CommunityInfo from "@/components/community/CommunityInfo";
 
 export default function CommunityPage() {
     return (
-        <div className="mt-8">
+        <section className="mt-8">
             <CommunityInfo/>
             <CommunityIcons/>
-        </div>
+        </section>
     )
 }
