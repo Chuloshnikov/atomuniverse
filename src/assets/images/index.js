@@ -19,6 +19,7 @@ import atomictoken from "./AtomicToken.png";
 import blokchain from "./blockchain.jpg";
 import blockchainweb from "./blockchainweb.jpg";
 import communityimage from "./community.jpg";
+import world from "./world.jpg";
 
 
 export {
@@ -42,5 +43,6 @@ export {
   atomictoken,
   blokchain,
   blockchainweb,
-  communityimage
+  communityimage,
+  world
 };
