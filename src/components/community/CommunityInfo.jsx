@@ -6,7 +6,7 @@ const CommunityInfo = () => {
     <div className="max-w-6xl mx-auto flex flex-col xl:flex-row gap-5 text-center">
       <div className="flex items-center flex-col xl:flex-row">
         <div className="p-6 hidden xl:block">
-          <Image src={communityimage} className="rounded-lg" alt="community"/>
+          <Image src={communityimage} className="rounded-lg pulse" alt="community"/>
         </div>
         <div className="p-6 flex flex-col gap-6">
           <h2 className="text-2xl font-semibold">
@@ -39,21 +39,3 @@ const CommunityInfo = () => {
 }
 
 export default CommunityInfo;
-
-
-{/*
-   
-        <p>
-        
-
-
-
-
-
-
-
-Growth and Education Education is a cornerstone of our community. We provide resources, host workshops, and organize events to educate our members about blockchain technology and its potential applications. By empowering our community with knowledge, we’re nurturing a generation of informed users and developers who will propel Atom Universe to new heights.
-
-Join our community today and be part of a movement that’s setting the standard for what a blockchain ecosystem should be—open, inclusive, and forward-thinking.
-        </p>
-  */}
