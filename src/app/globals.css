@@ -117,3 +117,12 @@ label + input {
 .pulse {
   animation: pulse 2s infinite;
 }
+
+
+div.tabs > * {
+  @apply bg-black text-white py-2 px-4 text-center w-full;
+}
+
+div.tabs > *.active{
+  @apply bg-accentBg text-white;
+}

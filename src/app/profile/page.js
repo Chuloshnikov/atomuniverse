@@ -29,7 +29,7 @@ export default function ProfilePage() {
     const userImage = session.data.user.image;
 
     return (
-        <section className="mt-12">
+        <section className="mt-12 p-4">
               <UserTabs isAdmin={isAdmin}/>
             <div className="max-w-md mx-auto">
                     <div className="flex gap-2">
@@ -74,7 +74,7 @@ export default function ProfilePage() {
                             />
                             <button
                             className="mt-4 shadow-button bg-accentBg hover:bg-smouthText 
-                            px-4 py-2 text-white rounded-md mr-4 hidden lg:block 
+                            px-4 py-2 text-white rounded-md mr-4 
                             font-semibold text-white w-full"
                             type="submit"
                             >

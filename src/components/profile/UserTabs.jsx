@@ -8,30 +8,30 @@ const UserTabs = ({ isAdmin }) => {
 
     return (
         <div
-        className="flex flex-col md:flex-row gap-2 justify-center tabs"
+        className="max-w-md flex flex-col md:flex-row justify-center tabs mx-auto mb-4 px-4"
         >
             <Link 
             href={'/profile'} 
-            className={`${path === '/profile' ? 'active' : 'cursor-pointer text-center py-4 xs:w-full mdl:w-[50%] xs:rounded-t-xl mdl:rounded-r-none mdl:rounded-l-xl'}`}>
+            className={`border-2 border-mainText xs:rounded-t-xl mdl:rounded-r-none mdl:rounded-l-xl ${path === '/profile' ? 'active' : ''}`}>
                 Profile
             </Link>
             {isAdmin && (
                 <>
                     <Link 
                     href={"/categories"}
-                    className={path === '/categories' ? 'active' : ''}
+                    className={`border border-mainText ${path === '/profile' ? 'active' : ''}`}
                     >
                         Blockchain
                     </Link>
                     <Link 
                     href={"/menu-items"}
-                    className={/menu-item/.test(path) ? 'active' : ''}
+                    className={`border border-mainText ${path === '/profile' ? 'active' : ''}`}
                     >
                         NFT
                     </Link>
                     <Link 
                     href={'/users'}
-                    className={/user/.test(path) ? 'active' : ''}
+                    className={`border border-mainText ${path === '/profile' ? 'active' : ''}`}
                     >
                         Users
                     </Link>
@@ -40,7 +40,7 @@ const UserTabs = ({ isAdmin }) => {
             )}
              <Link 
                 href={'/orders'}
-                className={path === '/orders' ? 'active' : ''}
+                className={`border-2 border-mainText xs:rounded-b-xl mdl:rounded-l-none mdl:rounded-r-xl ${path === '/wallet' ? 'active' : ''}`}
                 >
                     Wallet
             </Link>
