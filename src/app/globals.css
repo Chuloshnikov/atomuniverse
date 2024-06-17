@@ -16,6 +16,23 @@ input {
   @apply focus:outline-none focus:ring-0 focus:border-transparent;
 }
 
+select,
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="text"] {
+  @apply w-full bg-mainBg border-2 border-accentBg text-smouthText rounded-md focus:border-smouthText dark:focus:ring-smouthText focus:ring-1 focus:outline-none focus:ring-smouthText;
+  
+}
+
+input[type="email"]:disabled,
+input[type="password"]:disabled,
+input[type="tel"]:disabled,
+input[type="text"]:disabled {
+  @apply bg-black/50 border-0 cursor-not-allowed text-gray-500 border-2 border-accentBg rounded-md focus:border-smouthText dark:focus:ring-smouthText focus:ring-1 focus:outline-none focus:ring-smouthText;
+  
+}
+
 label {
   @apply text-sm;
 }
