@@ -48,7 +48,6 @@ const SignInPopup = ({toggle}) => {
              <label>Email:</label>
             <input 
             onChange={e => setEmail(e.target.value)}
-            className="w-full bg-mainBg border-2 border-accentBg text-smouthText rounded-md focus:border-smouthText dark:focus:ring-smouthText focus:ring-1 focus:outline-none focus:ring-smouthText"
             type="email"
             name="email"
             value={email}
@@ -56,7 +55,6 @@ const SignInPopup = ({toggle}) => {
             <label>Password:</label>
             <input 
             onChange={e => setPassword(e.target.value)}
-            className="w-full bg-mainBg border-2 border-accentBg text-smouthText rounded-md focus:border-smouthText dark:focus:ring-smouthText focus:ring-1 focus:outline-none focus:ring-smouthText"
             type="password"
             name="password"
             value={password}

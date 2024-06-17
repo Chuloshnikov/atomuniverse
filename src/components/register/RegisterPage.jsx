@@ -55,27 +55,23 @@ const RegisterPage = () => {
         <label>Name:</label>
             <input 
             onChange={e => setName(e.target.value)}
-            className="w-full bg-mainBg border-2 border-accentBg text-smouthText rounded-md focus:border-smouthText dark:focus:ring-smouthText focus:ring-1 focus:outline-none focus:ring-smouthText"
             type="text"
             placeholder='name'
             />
              <label>Email:</label>
             <input 
             onChange={e => setEmail(e.target.value)}
-            className="w-full bg-mainBg border-2 border-accentBg text-smouthText rounded-md focus:border-smouthText dark:focus:ring-smouthText focus:ring-1 focus:outline-none focus:ring-smouthText"
             type="email"
             placeholder='email'
             />
             <label>Password:</label>
             <input 
-            onChange={e => setPassword(e.target.value)}
-            className="w-full bg-mainBg border-2 border-accentBg text-smouthText rounded-md focus:border-smouthText dark:focus:ring-smouthText focus:ring-1 focus:outline-none focus:ring-smouthText"
-            type="password"
+            type='password'
             placeholder='password'
+            onChange={e => setPassword(e.target.value)}
             />
             <div className="mt-2 flex items-center">
                 <button 
-               
                 className="shadow-button bg-accentBg hover:bg-smouthText 
                 px-4 py-2 text-white rounded-md mr-4 
                 font-semibold text-white" 
