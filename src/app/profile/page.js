@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {redirect} from "next/navigation";
 import { PiUserCircleThin } from "react-icons/pi";
+import UserTabs from "../../components/profile/UserTabs";
 
 export default function ProfilePage() {
 
@@ -29,6 +30,7 @@ export default function ProfilePage() {
 
     return (
         <section className="mt-12">
+              <UserTabs isAdmin={isAdmin}/>
             <div className="max-w-md mx-auto">
                     <div className="flex gap-2">
                         <div className="bg-mainText p-2 rounded-lg">
