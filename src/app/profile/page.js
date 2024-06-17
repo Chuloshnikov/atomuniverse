@@ -17,16 +17,25 @@ export default function ProfilePage() {
 
     if (status === 'loading') {
     return 'Loading...';
-    }
+    };
 
     if (status === 'unauthenticated') {
     return redirect('/login');
-    }
+    };
+
+    const userImage = session.data.user.image;
 
     return (
         <section className="mt-12">
             <form className=",ax-w-xs mx-auto">
-                    profile
+                    <div className="flex gap-2">
+                        <div>
+                            <Image src={userImage} width={100} height={100} alt="avatar"/>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
             </form>
         </section>
     )
