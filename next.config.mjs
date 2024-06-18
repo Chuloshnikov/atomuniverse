@@ -8,7 +8,11 @@ const nextConfig = {
           },
           {
             protocol: 'https',
-            hostname: 'dawid-food-ordering.s3.amazonaws.com',
+            hostname: 'atom-universe.s3.amazonaws.com',
+          },
+          {
+            protocol: 'https',
+            hostname: 'avatars.githubusercontent.com',
           },
         ]
       }
