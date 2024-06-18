@@ -1,10 +1,14 @@
 import Image from "next/image";
 import { communityimage } from "@/assets/images";
+import { cryptocommunity } from "@/assets/images";
 
 const CommunityInfo = () => {
   return (
     <div className="max-w-6xl mx-auto flex flex-col xl:flex-row gap-5 text-center">
       <div className="flex items-center flex-col xl:flex-row">
+        <div className="p-4 xl:hidden">
+          <Image src={cryptocommunity} className="rounded-lg" alt="cryptocommunity"/>
+        </div>
         <div className="p-6 hidden xl:block">
           <Image src={communityimage} className="rounded-lg pulse" alt="community"/>
         </div>
