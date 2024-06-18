@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FaWindowClose } from "react-icons/fa";
 import {signIn, signOut } from "next-auth/react";
 
-const BurgerMenu = ({ toggle, loginToggle, status }) => {
+const BurgerMenu = ({ userName, toggle, loginToggle, status }) => {
     
     const toggleLogin = () => {
         toggle();
@@ -19,6 +19,7 @@ const BurgerMenu = ({ toggle, loginToggle, status }) => {
                 <FaWindowClose className=" h-7 w-7 text-accentBg hover:text-smouthText duration-200"/>
             </button>
         </div>
+            <Link href={'/profile'}>{userName}</Link>
            <ul onClick={toggle} className="flex flex-col gap-4 mt-4">
                 <li><Link href={'/'}>marketplace</Link></li>
                 <li><Link href={'/'}>learn</Link></li>
