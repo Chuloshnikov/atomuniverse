@@ -30,13 +30,13 @@ const TypewriterEffect = ({ text, speed = 50 }) => {
   }
 
   return (
-    <motion.div
+    <motion.p
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
       {displayedText === ' ' ? '\u00A0' : displayedText}
-    </motion.div>
+    </motion.p>
   );
 };
 

@@ -9,11 +9,11 @@ const InfoSection = () => {
     <div className="max-w-6xl mx-auto">
         <div className="mt-12 flex gap-2 flex-col xl:flex-row">
           <div className="w-full xl:w-[50%] text-center justify-center items-center min-h-[300px]">
-              <p className="text-2xl py-4 px-6 leading-relaxed max-w-[600px] mx-auto xl:mt-12">
+              <div className="text-2xl py-4 px-6 leading-relaxed max-w-[600px] mx-auto xl:mt-12">
                 <TypewriterEffect
                 text={text}
                 />
-                </p>
+                </div>
           </div>
           <div className="w-full xl:max-w-[50%] p-8 flex items-center justify-center mx-auto">
               <FaGear className="rotatingGear1 w-20 h-20 md:w-40 md:h-40 xl:w-[300px] xl:h-[300px] text-smouthText"/>
