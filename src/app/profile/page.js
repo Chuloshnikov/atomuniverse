@@ -17,6 +17,23 @@ export default function ProfilePage() {
     const [profileFetched, setProfileFetched] = useState(false);
     const {status} = session;
 
+    const handleProfileInfoUpdate = async (e) => {
+        e.preventDefault();
+        const response = await fetch('/api/profile', {
+            method: 'PUT',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                name: userName, 
+                image,
+            });
+        });
+        if (response.ok) {
+            
+        } else {
+            
+        }
+    }
+
 
     if (status === 'loading') {
     return 'Loading...';
@@ -56,7 +73,10 @@ export default function ProfilePage() {
                                 <span className="block border-2 border-black rounded-lg p-[4px] text-black font-semibold text-center cursor-pointer mt-2">Edit</span>
                             </label>
                         </div>
-                        <form className="grow">
+                        <form 
+                        className="grow"
+                        onSubmit={handleProfileInfoUpdate}
+                        >
                         <label>Username:</label>
                         <input 
                             onChange={e => setUserName(e.target.value)}
