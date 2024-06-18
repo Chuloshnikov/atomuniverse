@@ -67,41 +67,49 @@ const Header = () => {
         <Logo />
         {windowWidth >= 960 && <DesktopHeaderNavLinks/>}
       </nav>
-      {status === 'authenticated' && (
-        <div className="flex items-center gap-2">
-               <Link 
-                href={'/profile'} 
-                className='flex flex-col-reverse items-center'
-                >
-                    <span className='hidden md:block whitespace-nowrap'>{userName}</span>
-                    <FaHouseUser className='h-8 w-8 text-primary'/>
-                </Link>
+    
+      
+      <div className="flex items-center gap-2">
+      {/*profile link*/}
+        <div>
+            {status === 'authenticated' && (
+              <div className="flex items-center gap-2">
+                    <Link 
+                      href={'/profile'} 
+                      className='flex items-center gap-1 items-center'
+                      >
+                          <span className='hidden md:block whitespace-nowrap'>{userName}</span>
+                          <FaHouseUser className='h-8 w-8 text-primary'/>
+                      </Link>
+                    <button 
+                      onClick={() => signOut()}
+                      className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
+                    text-white rounded-md mr-4 hidden lg:block font-semibold"
+                    >
+                        Log out
+                    </button>
+              </div>
+            )}
+          {/*login and logout button*/}
+
+          {status === 'unauthenticated' && (
               <button 
-                onClick={() => signOut()}
-                className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
-              text-white rounded-md mr-4 hidden lg:block font-semibold"
-              >
-                  Log out
+              onClick={handleLoginToggle}
+              className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
+              text-white rounded-md mr-4 hidden lg:block font-semibold">
+                  Log in
               </button>
+            )}
+            {status === 'loading' && (
+              <button 
+              onClick={handleLoginToggle}
+              className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
+                text-white rounded-md mr-4 hidden lg:block font-semibold">
+                  Log in
+              </button>
+            )}
         </div>
-        
-      )}
-      {status === 'unauthenticated' && (
-        <button 
-        onClick={handleLoginToggle}
-        className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
-         text-white rounded-md mr-4 hidden lg:block font-semibold">
-            Log in
-        </button>
-      )}
-      {status === 'loading' && (
-         <button 
-         onClick={handleLoginToggle}
-         className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
-          text-white rounded-md mr-4 hidden lg:block font-semibold">
-             Log in
-         </button>
-      )}
+      
       {/* login menu start */}
       <AnimatePresence>
         {openLoginPopup && (
@@ -150,6 +158,7 @@ const Header = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      </div>
       {/*Mobile menu end*/}
     </header>
   );

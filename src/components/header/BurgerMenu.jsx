@@ -21,10 +21,10 @@ const BurgerMenu = ({ userName, toggle, loginToggle, status }) => {
         </div>
             <Link href={'/profile'}>{userName}</Link>
            <ul onClick={toggle} className="flex flex-col gap-4 mt-4">
-                <li><Link href={'/'}>marketplace</Link></li>
-                <li><Link href={'/'}>learn</Link></li>
-                <li><Link href={'/'}>community</Link></li>
-                <li><Link href={'/'}>tools</Link></li>
+                <li><Link href={'/marketplace'}>marketplace</Link></li>
+                <li><Link href={'/learn'}>learn</Link></li>
+                <li><Link href={'/community'}>community</Link></li>
+                <li><Link href={'/tools'}>tools</Link></li>
            </ul>
            {status === "authenticated" ? (
            <div className="mt-4">

@@ -20,6 +20,7 @@ import blokchain from "./blockchain.jpg";
 import blockchainweb from "./blockchainweb.jpg";
 import communityimage from "./community.jpg";
 import world from "./world.jpg";
+import cryptocommunity from "./cryptocommunity.png";
 
 
 export {
@@ -44,5 +45,6 @@ export {
   blokchain,
   blockchainweb,
   communityimage,
-  world
+  world,
+  cryptocommunity
 };
