@@ -39,7 +39,7 @@ const UserTabs = ({ isAdmin }) => {
                 </>
             )}
              <Link 
-                href={'/orders'}
+                href={'/wallet'}
                 className={`border-2 border-accentBg xs:rounded-b-xl mdl:rounded-l-none mdl:rounded-r-xl ${path === '/wallet' ? 'active' : ''}`}
                 >
                     Wallet
