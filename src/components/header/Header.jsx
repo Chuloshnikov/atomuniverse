@@ -28,9 +28,20 @@ const Header = () => {
     }, []);
 
     const gmailCredentials = userData?.email.indexOf("gmail");
+    const githubCredentials = userData?.image.indexOf("github")
 
     useEffect(() => {
       if (gmailCredentials) {
+        fetch('/api/profile', {
+          method: 'POST',
+          headers: {'Content-type': 'application/json'},
+          body: JSON.stringify({
+              email: userData.email,
+              name: userData.name,
+              image: userData.image,
+          }),
+      });
+      } else if (githubCredentials) {
         fetch('/api/profile', {
           method: 'POST',
           headers: {'Content-type': 'application/json'},
