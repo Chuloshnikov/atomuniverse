@@ -8,7 +8,7 @@ const nextConfig = {
           },
           {
             protocol: 'https',
-            hostname: 'atom-universe.s3.amazonaws.com',
+            hostname: 'atom-univerce.s3.amazonaws.com',
           },
           {
             protocol: 'https',
