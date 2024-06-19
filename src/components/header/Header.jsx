@@ -14,7 +14,6 @@ const Header = () => {
     const [windowWidth, setWindowWidth] = useState(undefined);
     const [openBurgerMenu, setOpenBurgerMenu] = useState(false);
     const [openLoginPopup, setOpenLoginPopup] = useState(false);
-    const [openRegisterPopup, setOpenRegisterPopup] = useState(false);
     const session = useSession();
     const status = session?.status;
     const userData = session.data?.user;
@@ -22,13 +21,15 @@ const Header = () => {
     if (userName && userName.includes(" ")) {
         userName = userName.split(' ')[0];
     }
+    console.log(userData);
 
     useEffect(() => {
         setWindowWidth(window?.innerWidth);
     }, []);
 
     const gmailCredentials = userData?.email.indexOf("gmail");
-    const githubCredentials = userData?.image.indexOf("github")
+    const githubCredentials = userData?.image?.indexOf("github");
+    console.log(githubCredentials);
 
     useEffect(() => {
       if (gmailCredentials) {
@@ -41,7 +42,8 @@ const Header = () => {
               image: userData.image,
           }),
       });
-      } else if (githubCredentials) {
+      } 
+      if (!!githubCredentials) {
         fetch('/api/profile', {
           method: 'POST',
           headers: {'Content-type': 'application/json'},

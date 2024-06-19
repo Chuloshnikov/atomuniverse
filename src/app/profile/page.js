@@ -4,18 +4,33 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import {redirect} from "next/navigation";
-import { PiUserCircleThin } from "react-icons/pi";
 import UserTabs from "../../components/profile/UserTabs";
+import EditableImage from "@/components/EditableImage";
 
 export default function ProfilePage() {
 
     const session = useSession();
 
-    const [userName, setUserName] = useState(session.data?.user?.name || '');
+    const [userName, setUserName] = useState('');
     const [image, setImage] = useState('');
     const [isAdmin, setIsAdmin] = useState(false);
+    const [uploading, setUploading] = useState(false);
     const [profileFetched, setProfileFetched] = useState(false);
     const {status} = session;
+
+    useEffect(() => {
+        if (status === 'authenticated') {
+            setUserName(session.data.user.name);
+            setImage(session.data.user.image);
+            fetch('/api/profile').then(response => {
+                response.json().then(data => {
+                    setUserName(data.name);
+                    setImage(data.image);
+                })
+            })
+        }
+
+    }, [session, status]);
 
     const handleProfileInfoUpdate = async (e) => {
         e.preventDefault();
@@ -25,7 +40,7 @@ export default function ProfilePage() {
             body: JSON.stringify({
                 name: userName, 
                 image,
-            });
+            })
         });
         if (response.ok) {
             
@@ -43,36 +58,13 @@ export default function ProfilePage() {
     return redirect('/login');
     };
 
-    const userImage = session.data.user.image;
 
     return (
         <section className="mt-12 p-4">
               <UserTabs isAdmin={isAdmin}/>
             <div className="max-w-md mx-auto">
                     <div className="flex gap-2">
-                        <div className="bg-mainText p-2 rounded-lg">
-                            {userImage ? (
-                                <div className="w-[100px] h-[100px]">
-                                    <Image 
-                                    className="rounded-lg" 
-                                    src={userImage} 
-                                    width={100} 
-                                    height={100} 
-                                    alt="avatar"
-                                    />
-                                </div>
-                                
-                            ) : (
-                                <div className="w-[100px] h-[100px]">
-                                    <PiUserCircleThin className="text-black w-[100px] h-[100px] mx-auto"/>
-                                </div>
-                                
-                            )}
-                            <label>
-                                <input type="file" className="hidden"/>
-                                <span className="block border-2 border-black rounded-lg p-[4px] text-black font-semibold text-center cursor-pointer mt-2">Edit</span>
-                            </label>
-                        </div>
+                       <EditableImage link={image} setLink={setImage} setUploading={setUploading}/>
                         <form 
                         className="grow"
                         onSubmit={handleProfileInfoUpdate}
