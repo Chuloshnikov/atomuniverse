@@ -7,7 +7,7 @@ const TypewriterEffect = ({ text }) => {
       sequence={[text]}
       wrapper="span"
       cursor={true}
-      repeat={Infinity}
+      repeat={1}
       style={{ fontSize: '20px', display: 'inline-block' }}
     />
   )
