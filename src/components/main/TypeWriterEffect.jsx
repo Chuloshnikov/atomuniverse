@@ -1,43 +1,16 @@
 "use client"
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { TypeAnimation } from 'react-type-animation';
 
-const TypewriterEffect = ({ text, speed = 50 }) => {
-  const [displayedText, setDisplayedText] = useState('');
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  useEffect(() => {
-    if (!isClient) return;
-
-    let i = 0;
-    const intervalId = setInterval(() => {
-      setDisplayedText((prev) => prev + text.charAt(i));
-      i++;
-      if (i === text.length) {
-        clearInterval(intervalId);
-      }
-    }, speed);
-
-    return () => clearInterval(intervalId);
-  }, [text, speed, isClient]);
-
-  if (!isClient) {
-    return null;
-  }
-
+const TypewriterEffect = ({ text }) => {
   return (
-    <motion.p
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      {displayedText === ' ' ? '\u00A0' : displayedText}
-    </motion.p>
-  );
+    <TypeAnimation
+      sequence={[text]}
+      wrapper="span"
+      cursor={true}
+      repeat={Infinity}
+      style={{ fontSize: '20px', display: 'inline-block' }}
+    />
+  )
 };
 
 export default TypewriterEffect;
