@@ -24,6 +24,7 @@ export default function ProfilePage() {
                 response.json().then(data => {
                     setUserName(data.name);
                     setImage(data.image);
+                    setIsAdmin(data.admin)
                 })
             })
         }

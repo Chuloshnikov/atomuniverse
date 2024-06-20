@@ -18,20 +18,20 @@ const UserTabs = ({ isAdmin }) => {
             {isAdmin && (
                 <>
                     <Link 
-                    href={"/categories"}
-                    className={`border border-accentBg ${path === '/profile' ? 'active' : ''}`}
+                    href={"/blockchain"}
+                    className={`border border-accentBg ${path === '/blockchain' ? 'active' : ''}`}
                     >
                         Blockchain
                     </Link>
                     <Link 
-                    href={"/menu-items"}
-                    className={`border border-accentBg ${path === '/profile' ? 'active' : ''}`}
+                    href={"/nft"}
+                    className={`border border-accentBg ${path === '/nft' ? 'active' : ''}`}
                     >
                         NFT
                     </Link>
                     <Link 
                     href={'/users'}
-                    className={`border border-accentBg ${path === '/profile' ? 'active' : ''}`}
+                    className={`border border-accentBg ${path === '/users' ? 'active' : ''}`}
                     >
                         Users
                     </Link>
