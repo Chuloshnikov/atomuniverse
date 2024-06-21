@@ -18,10 +18,10 @@ const UserTabs = ({ isAdmin }) => {
             {isAdmin && (
                 <>
                     <Link 
-                    href={"/blockchain"}
+                    href={"/testnet"}
                     className={`border border-accentBg ${path === '/blockchain' ? 'active' : ''}`}
                     >
-                        Blockchain
+                        Testnet
                     </Link>
                     <Link 
                     href={"/nft"}

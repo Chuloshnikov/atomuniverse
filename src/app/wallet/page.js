@@ -1,4 +1,5 @@
 "use client"
+import Wallet from "@/components/wallet/Wallet";
 import UserTabs from "../../components/profile/UserTabs";
 import { useSession } from "next-auth/react";
 import {redirect} from "next/navigation";
@@ -17,9 +18,9 @@ export default function WalletPage() {
         };
     
     return (
-        <section className="mt-12 p-4">
+        <section className="max-w-md mx-auto mt-12 p-4">
             <UserTabs isAdmin={true}/>
-            wallet
+            <Wallet/>
         </section>
     )
 }
