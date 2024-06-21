@@ -18,10 +18,13 @@ export async function POST(req) {
           if (existingWallet) {
             // Пользователь с таким email уже существует
             return Response.json({ error: 'User already exists' }, { status: 400 });
+          } else {
+            const wallet = {wallet: true};
+            await User.findOneAndUpdate({email}, wallet);
           }
         }
 
-        const userWalletCreation = await User.findOneAndUpdate({email}, {wallet: true});
+        
 
           // Генерация случайного кошелька
         const wallet = ethers.Wallet.createRandom();
