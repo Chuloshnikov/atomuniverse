@@ -6,10 +6,13 @@ import {useProfile} from "@/components/UseProfile";
 const Wallet = () => {
     const [isWallet, setIsWallet] = useState(false);
     const {data} = useProfile();
+    console.log(data);
 
     useEffect(() => {
-        
-    }, [isWallet])
+        if (data.wallet) {
+            setIsWallet(true);
+        }
+    }, [data])
     
 
 
