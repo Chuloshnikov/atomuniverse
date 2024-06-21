@@ -12,26 +12,26 @@ const UserTabs = ({ isAdmin }) => {
         >
             <Link 
             href={'/profile'} 
-            className={`border-2 border-accentBg xs:rounded-t-xl mdl:rounded-r-none mdl:rounded-l-xl ${path === '/profile' ? 'active' : ''}`}>
+            className={`border-2 border-accentBg xs:rounded-t-md md:rounded-r-none md:rounded-l-md ${path === '/profile' ? 'active' : ''}`}>
                 Profile
             </Link>
             {isAdmin && (
                 <>
                     <Link 
                     href={"/testnet"}
-                    className={`border border-accentBg ${path === '/blockchain' ? 'active' : ''}`}
+                    className={`border-2 border-accentBg ${path === '/blockchain' ? 'active' : ''}`}
                     >
                         Testnet
                     </Link>
                     <Link 
                     href={"/nft"}
-                    className={`border border-accentBg ${path === '/nft' ? 'active' : ''}`}
+                    className={`border-2 border-accentBg ${path === '/nft' ? 'active' : ''}`}
                     >
                         NFT
                     </Link>
                     <Link 
                     href={'/users'}
-                    className={`border border-accentBg ${path === '/users' ? 'active' : ''}`}
+                    className={`border-2 border-accentBg ${path === '/users' ? 'active' : ''}`}
                     >
                         Users
                     </Link>
@@ -40,7 +40,7 @@ const UserTabs = ({ isAdmin }) => {
             )}
              <Link 
                 href={'/wallet'}
-                className={`border-2 border-accentBg xs:rounded-b-xl mdl:rounded-l-none mdl:rounded-r-xl ${path === '/wallet' ? 'active' : ''}`}
+                className={`border-2 border-accentBg xs:rounded-b-md md:rounded-l-none md:rounded-r-md ${path === '/wallet' ? 'active' : ''}`}
                 >
                     Wallet
             </Link>

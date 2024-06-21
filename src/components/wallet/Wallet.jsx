@@ -7,6 +7,7 @@ const Wallet = ({}) => {
     const [isWallet, setIsWallet] = useState(false);
     const [createWallet, setCreateWallet] = useState(false);
     const {data} = useProfile();
+    console.log(data.wallet);
 
     useEffect(() => {
         if (data.wallet) {
