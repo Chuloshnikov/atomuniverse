@@ -6,12 +6,11 @@ const CreateWallet = ({email}) => {
 
     
     async function createUserWallet({email}) {
-        const response = await fetch('/api/wallet', {
+        const response = await fetch('/api/generateWallet', {
             method: 'PUT',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
                 email,
-                address,
             })
         });
         if (response.ok) {

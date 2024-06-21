@@ -5,7 +5,7 @@ const NftSchema = new Schema({
     name: {type: String},
     image: {type: String},
     coinPrice: {type: Number},
-    tokenPrice: {type: Number}б
+    tokenPrice: {type: Number}
 })
 
 const WalletSchema = new Schema({
