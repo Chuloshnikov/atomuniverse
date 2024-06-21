@@ -1,11 +1,11 @@
 "use client"
 import { useState } from 'react'
 
-const CreateWallet = () => {
+const CreateWallet = ({email}) => {
     const [createWallet, setCreateWallet] = useState(false);
 
     
-    function createUserWallet({email}) {
+    async function createUserWallet({email}) {
         const response = await fetch('/api/wallet', {
             method: 'PUT',
             headers: {'Content-type': 'application/json'},

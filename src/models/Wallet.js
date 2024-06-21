@@ -8,11 +8,11 @@ const NftSchema = new Schema({
     tokenPrice: {type: Number}
 })
 
-const UserSchema = new Schema({
+const WalletSchema = new Schema({
   email: {type: String, required: true, unique: true},
   tokenAmount: {type: Number, default: 0},
   coinAmount: {type: Number, default: 0},
-  nft: {type:[ExtraPriceSchema]}
+  nft: {type:[NftSchema]}
 }, {timestamps: true});
 
-export const User = models?.User || model('User', UserSchema);
+export const Wallet = models?.Wallet || model('Wallet', WalletSchema);

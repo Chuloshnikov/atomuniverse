@@ -6,7 +6,6 @@ import {useProfile} from "@/components/UseProfile";
 const Wallet = () => {
     const [isWallet, setIsWallet] = useState(false);
     const {data} = useProfile();
-    console.log(data);
 
     useEffect(() => {
         if (data.wallet) {
@@ -18,7 +17,7 @@ const Wallet = () => {
 
     if (!isWallet) {
         return (
-            <CreateWallet/>
+            <CreateWallet email={data.email}/>
         )
     }
 
