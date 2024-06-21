@@ -21,7 +21,6 @@ const Header = () => {
     if (userName && userName.includes(" ")) {
         userName = userName.split(' ')[0];
     }
-    console.log(userData);
 
     useEffect(() => {
         setWindowWidth(window?.innerWidth);
@@ -29,7 +28,6 @@ const Header = () => {
 
     const gmailCredentials = userData?.email.indexOf("gmail");
     const githubCredentials = userData?.image?.indexOf("github");
-    console.log(githubCredentials);
 
     useEffect(() => {
       if (gmailCredentials) {

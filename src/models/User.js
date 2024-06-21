@@ -7,6 +7,7 @@ const UserSchema = new Schema({
   image: {type: String},
   tokenAmount: {type: Number, default: 0},
   admin: {type: Boolean, default: false},
+  wallet: {type: Boolean, default: false}
 }, {timestamps: true});
 
 export const User = models?.User || model('User', UserSchema);

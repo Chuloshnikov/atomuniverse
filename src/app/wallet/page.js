@@ -4,10 +4,12 @@ import UserTabs from "../../components/profile/UserTabs";
 import { useSession } from "next-auth/react";
 import {redirect} from "next/navigation";
 
+
 export default function WalletPage() {
 
     const session = useSession();
     const {status} = session;
+    
 
     if (status === 'loading') {
         return 'Loading...';

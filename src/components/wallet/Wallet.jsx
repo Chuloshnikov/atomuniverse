@@ -3,8 +3,9 @@ import { useState, useEffect } from 'react'
 import CreateWallet from './CreateWallet';
 import {useProfile} from "@/components/UseProfile";
 
-const Wallet = () => {
+const Wallet = ({}) => {
     const [isWallet, setIsWallet] = useState(false);
+    const [createWallet, setCreateWallet] = useState(false);
     const {data} = useProfile();
 
     useEffect(() => {
@@ -12,12 +13,16 @@ const Wallet = () => {
             setIsWallet(true);
         }
     }, [data])
+
+    if (createWallet) {
+        window.location.reload();
+    }
     
 
 
     if (!isWallet) {
         return (
-            <CreateWallet email={data.email}/>
+            <CreateWallet email={data.email} setCreateWallet={setCreateWallet}/>
         )
     }
 
