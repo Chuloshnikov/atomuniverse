@@ -58,7 +58,11 @@ const UserWallet = () => {
       <div className='h-4 w-full'>
       {copied ? <span className='text-green-600 text-xs'>Address copied!</span> : null}
       </div>
-      <div>OLOLO</div>
+      <div className='mt-4'>
+        <form>
+            <input type='text' placeholder='type the address...'/>
+        </form>
+      </div>
     </div>
   );
 };
