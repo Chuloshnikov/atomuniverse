@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import {redirect} from "next/navigation";
 import UserTabs from "../../components/profile/UserTabs";
 import EditableImage from "@/components/EditableImage";
+import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
 export default function ProfilePage() {
 
@@ -50,7 +51,7 @@ export default function ProfilePage() {
 
 
     if (status === 'loading') {
-    return 'Loading...';
+    return <LoadingSpinner/>;
     };
 
     if (status === 'unauthenticated') {
