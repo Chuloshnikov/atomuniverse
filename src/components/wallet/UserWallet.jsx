@@ -61,6 +61,11 @@ const UserWallet = () => {
       <div className='mt-4'>
         <form>
             <input type='text' placeholder='type the address...'/>
+            <button 
+            type='button'
+            >
+                    Send
+            </button>
         </form>
       </div>
     </div>
