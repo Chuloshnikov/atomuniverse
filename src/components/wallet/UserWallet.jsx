@@ -44,7 +44,7 @@ const UserWallet = () => {
 
   return (
     <div className="py-6 text-center">
-      <div className='px-2'>
+      <div className=''>
         <h2 className='text-lg'>{data.name}</h2>
         {wallet && (
         <div className='flex gap-1 items-center justify-center'>
