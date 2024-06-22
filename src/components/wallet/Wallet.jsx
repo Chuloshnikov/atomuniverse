@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import CreateWallet from './CreateWallet';
 import {useProfile} from "@/components/UseProfile";
+import UserWallet from './UserWallet';
 
 const Wallet = ({}) => {
     const [isWallet, setIsWallet] = useState(false);
@@ -30,7 +31,7 @@ const Wallet = ({}) => {
 
   return (
     <div>
-        Wallet
+        <UserWallet/>
     </div>
   )
 }
