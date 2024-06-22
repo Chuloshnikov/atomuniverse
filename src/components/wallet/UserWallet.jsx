@@ -62,7 +62,10 @@ const UserWallet = () => {
         <form>
             <input type='text' placeholder='type the address...'/>
             <button 
-            type='button'
+            className="mt-4 shadow-button bg-accentBg hover:bg-smouthText 
+            px-4 py-2 text-white rounded-md mr-4 
+            font-semibold text-white w-full"
+             type='button'
             >
                     Send
             </button>
