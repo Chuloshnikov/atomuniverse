@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import { Wallet } from '@/models/Wallet';
 import { NextResponse } from 'next/server';
 import { User } from '@/models/User';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../auth/[...nextauth]/route';
 
 export async function POST(req) {
     try {
@@ -40,4 +42,18 @@ export async function POST(req) {
         console.error('Error:', error);
         return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
     }
+}
+
+
+
+export async function GET() {
+  mongoose.connect(process.env.MONGODB_URL);
+  const session = await getServerSession(authOptions);
+  const email = session?.user?.email;
+  if (!email) {
+      return Response.json({});
+  }
+  return Response.json(
+      await Wallet.findOne({email})
+  )
 }
