@@ -4,6 +4,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { TbCopy, TbCopyCheckFilled } from "react-icons/tb";
 import { shortenString } from '@/libs/shorterString';
 import LoadingSpinner from '../ui/LoadingSpinner';
+import WalletAmount from './WalletAmount';
 
 const UserWallet = () => {
   const { data } = useProfile();
@@ -59,17 +60,26 @@ const UserWallet = () => {
       {copied ? <span className='text-green-600 text-xs'>Address copied!</span> : null}
       </div>
       <div className='mt-4'>
-        <form>
+        <form
+        className='flex flex-col gap-2'
+        >
             <input type='text' placeholder='type the address...'/>
+            <select name="select">
+                <option value="value1">Atomic Token</option>
+                <option value="value2" selected>Atomcoin</option>
+            </select>
             <button 
             className="mt-4 shadow-button bg-accentBg hover:bg-smouthText 
             px-4 py-2 text-white rounded-md mr-4 
             font-semibold text-white w-full"
-             type='button'
+             type='submit'
             >
                     Send
             </button>
         </form>
+      </div>
+      <div className='mt-4'>
+        <WalletAmount wallet={wallet}/>
       </div>
     </div>
   );
