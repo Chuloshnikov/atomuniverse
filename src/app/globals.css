@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.no-arrows::-webkit-outer-spin-button,
+.no-arrows::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.no-arrows {
+    -moz-appearance: textfield;
+}
+
 
 html {
   scroll-behavior: smooth;
@@ -20,7 +30,8 @@ select,
 input[type="email"],
 input[type="password"],
 input[type="tel"],
-input[type="text"] {
+input[type="text"],
+input[type="number"] {
   @apply w-full bg-mainBg border-2 border-accentBg text-smouthText rounded-md focus:border-smouthText dark:focus:ring-smouthText focus:ring-1 focus:outline-none focus:ring-smouthText;
   
 }
