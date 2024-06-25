@@ -22,7 +22,7 @@ const HeroSection = () => {
     <div className='max-w-6xl mx-auto'>
         <div className='max-w-full rounded-lg mt-12 mx-6 flex flex-col text-center mdl:text-left xl:flex-row gap-10'>
             <div className='xl:max-w-[50%] mx-auto'>
-                <Image src={herorobot} layout='fil' alt='robot' className='rounded-lg'/>
+                <Image src={herorobot} objectFit='cover' alt='robot' className='rounded-lg'/>
             </div>
             <div className='xl:max-w-[50%] mx-auto'>
                 <h2 className='textShadow text-smouthText text-4xl top-1 mx-auto'>Atom Universe - Your key to the blockchain of the future.</h2>
