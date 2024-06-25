@@ -12,6 +12,8 @@ const UserWallet = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [copied, setCopied] = useState(false);
+  const [founds, setFounds] = useState("");
+  const [currency, setCurrency] = useState("at");
 
   console.log(wallet);
 
@@ -34,6 +36,11 @@ const UserWallet = () => {
 
     fetchWallet();
   }, []);
+
+
+  async function sendFounds(founds, currency) {
+      e.preventDefault();
+  }
 
   if (loading) {
     return (<LoadingSpinner />);
@@ -64,10 +71,16 @@ const UserWallet = () => {
         className='flex flex-col gap-2'
         >
             <input type='text' placeholder='type the address...'/>
-            <select name="select">
-                <option value="value1">Atomic Token</option>
-                <option value="value2" selected>Atomcoin</option>
+            <input className='no-arrows' type='number' placeholder='0.00'  min="0.00"/>
+            <select 
+            onChange={e => setCurrency(e.target.value)}
+            name="select" 
+            defaultValue={"at"}
+            >
+                <option value="at">Atomic Token</option>
+                <option value="ac" selected>Atomcoin</option>
             </select>
+            {currency}
             <button 
             className="mt-4 shadow-button bg-accentBg hover:bg-smouthText 
             px-4 py-2 text-white rounded-md mr-4 
