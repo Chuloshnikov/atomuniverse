@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useProfile } from '../UseProfile';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { TbCopy, TbCopyCheckFilled } from "react-icons/tb";
+import { TbCopy } from "react-icons/tb";
 import { shortenString } from '@/libs/shorterString';
 import LoadingSpinner from '../ui/LoadingSpinner';
 import WalletAmount from './WalletAmount';
@@ -38,8 +38,22 @@ const UserWallet = () => {
   }, []);
 
 
-  async function sendFounds(founds, currency) {
+  async function sendFounds() {
       e.preventDefault();
+      const response = await fetch('/api/wallet', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+           email: wallet.email, 
+           currency,
+           founds
+          }),
+    });
+    if (response.ok) {
+            
+    } else {
+        
+    }
   }
 
   if (loading) {
@@ -68,10 +82,21 @@ const UserWallet = () => {
       </div>
       <div className='mt-4'>
         <form
+        onSubmit={sendFounds}
         className='flex flex-col gap-2'
         >
-            <input type='text' placeholder='type the address...'/>
-            <input className='no-arrows' type='number' placeholder='0.00'  min="0.00"/>
+            <input 
+            onChange={e => setFounds(e.target.value)} 
+            type='text' 
+            placeholder='type the address...'
+            />
+            <input 
+            className='no-arrows' 
+            type='number' 
+            placeholder='0.00'  
+            min="0.0000000001"
+            step="any"
+            />
             <select 
             onChange={e => setCurrency(e.target.value)}
             name="select" 
