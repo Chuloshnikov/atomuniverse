@@ -66,7 +66,7 @@ export async function PUT(req) {
   const email = session.user.email; // Email отправителя
 
   const { address, currency, founds } = data; // Адрес получателя, валюта, сумма
-
+console.log(founds);
   try {
     // Начинаем транзакцию
     const session = await mongoose.startSession();
