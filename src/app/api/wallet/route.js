@@ -57,3 +57,18 @@ export async function GET() {
       await Wallet.findOne({email})
   )
 }
+
+
+export async function PUT(req) {
+  mongoose.connect(process.env.MONGODB_URL);
+  const data = await req.json();
+  const session = await getServerSession(authOptions);
+  const email = session.user.email; //sender email
+  
+  const { address, currency, founds } = data //recipient
+  
+    const recipient = await Wallet.findOne({address});
+
+
+  return Response.json(true);
+}

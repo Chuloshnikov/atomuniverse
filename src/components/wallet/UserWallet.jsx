@@ -13,6 +13,7 @@ const UserWallet = () => {
   const [error, setError] = useState(null);
   const [copied, setCopied] = useState(false);
   const [founds, setFounds] = useState("");
+  const [address, setAddress] = useState("");
   const [currency, setCurrency] = useState("at");
 
   console.log(wallet);
@@ -44,9 +45,9 @@ const UserWallet = () => {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-           email: wallet.email, 
-           currency,
-           founds
+            address,
+            currency,
+            founds
           }),
     });
     if (response.ok) {
@@ -86,11 +87,12 @@ const UserWallet = () => {
         className='flex flex-col gap-2'
         >
             <input 
-            onChange={e => setFounds(e.target.value)} 
+            onChange={e => setAddress(e.target.value)} 
             type='text' 
             placeholder='type the address...'
             />
             <input 
+            onChange={e => setFounds(e.target.value)} 
             className='no-arrows' 
             type='number' 
             placeholder='0.00'  
