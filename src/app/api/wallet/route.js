@@ -65,10 +65,24 @@ export async function PUT(req) {
   const session = await getServerSession(authOptions);
   const email = session.user.email; //sender email
   
-  const { address, currency, founds } = data //recipient
-  
-    const recipient = await Wallet.findOne({address});
+  const { address, currency, founds } = data; //recipient
 
+  const sender = await Wallet.findOne({email});
+  
+  const recipient = await Wallet.findOne({address});
+  console.log(recipient.address);
+
+  if (currency === "at") {
+
+  }
+  if (currency === "ac") {
+    
+  }
+  try {
+    
+  } catch (error) {
+
+  }
 
   return Response.json(true);
 }

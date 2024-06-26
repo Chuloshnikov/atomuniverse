@@ -39,7 +39,7 @@ const UserWallet = () => {
   }, []);
 
 
-  async function sendFounds() {
+  async function sendFounds(e) {
       e.preventDefault();
       const response = await fetch('/api/wallet', {
         method: 'PUT',
@@ -112,7 +112,7 @@ const UserWallet = () => {
             className="mt-4 shadow-button bg-accentBg hover:bg-smouthText 
             px-4 py-2 text-white rounded-md mr-4 
             font-semibold text-white w-full"
-             type='submit'
+            type='submit'
             >
                     Send
             </button>
