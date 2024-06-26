@@ -61,7 +61,7 @@ export default function ProfilePage() {
 
     return (
         <section className="mt-12 p-4">
-              <UserTabs isAdmin={isAdmin}/>
+              <UserTabs/>
             <div className="max-w-md mx-auto">
                     <div className="flex gap-2">
                        <EditableImage link={image} setLink={setImage} setUploading={setUploading}/>

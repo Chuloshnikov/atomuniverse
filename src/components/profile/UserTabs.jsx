@@ -1,10 +1,13 @@
 "use client"
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useProfile } from "../UseProfile";
 
-const UserTabs = ({ isAdmin }) => {
+const UserTabs = () => {
 
     const path = usePathname();
+    const {data} = useProfile();
+    const isAdmin = data.admin;
 
     return (
         <div

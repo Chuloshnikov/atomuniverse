@@ -87,7 +87,7 @@ const Header = () => {
               <div className="flex items-center gap-2">
                     <Link 
                       href={'/profile'} 
-                      className='flex items-center gap-1 items-center'
+                      className='flex items-center gap-1'
                       >
                           <span className='hidden md:block whitespace-nowrap'>{userName}</span>
                           <FaHouseUser className='h-8 w-8 text-primary'/>
