@@ -5,6 +5,7 @@ import { TbCopy } from "react-icons/tb";
 import { shortenString } from '@/libs/shorterString';
 import LoadingSpinner from '../ui/LoadingSpinner';
 import WalletAmount from './WalletAmount';
+import Decimal from 'decimal.js';
 
 const UserWallet = () => {
   const { data } = useProfile();
@@ -50,7 +51,7 @@ const UserWallet = () => {
         body: JSON.stringify({
           address,
           currency,
-          founds: parseInt(founds)
+          founds: new Decimal(founds)
         }),
       });
   

@@ -103,14 +103,11 @@ export async function PUT(req) {
     await recipient.save();
 
     // Завершаем транзакцию
-    await session.commitTransaction();
-    session.endSession();
+
 
     return Response.json(true);
   } catch (error) {
     // Откатываем транзакцию при ошибке
-    await session.abortTransaction();
-    session.endSession();
     return Response.json({ error: error.message });
   }
 }
