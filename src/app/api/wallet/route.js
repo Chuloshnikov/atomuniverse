@@ -60,29 +60,57 @@ export async function GET() {
 
 
 export async function PUT(req) {
-  mongoose.connect(process.env.MONGODB_URL);
+  await mongoose.connect(process.env.MONGODB_URL);
   const data = await req.json();
   const session = await getServerSession(authOptions);
-  const email = session.user.email; //sender email
-  
-  const { address, currency, founds } = data; //recipient
+  const email = session.user.email; // Email отправителя
 
-  const sender = await Wallet.findOne({email});
-  
-  const recipient = await Wallet.findOne({address});
-  console.log(recipient.address);
+  const { address, currency, founds } = data; // Адрес получателя, валюта, сумма
 
-  if (currency === "at") {
-
-  }
-  if (currency === "ac") {
-    
-  }
   try {
-    
+    // Начинаем транзакцию
+    const session = await mongoose.startSession();
+    session.startTransaction();
+
+    // Находим кошелек отправителя
+    const sender = await Wallet.findOne({ email }).session(session);
+    if (!sender) {
+      throw new Error('Sender not found');
+    }
+
+    // Проверяем баланс отправителя
+    if ((currency === 'at' && sender.tokenAmount < founds) || (currency === 'ac' && sender.coinAmount < founds)) {
+      throw new Error('Insufficient funds');
+    }
+
+    // Находим кошелек получателя
+    const recipient = await Wallet.findOne({ address }).session(session);
+    if (!recipient) {
+      throw new Error('Recipient not found');
+    }
+
+    // Обновляем баланс отправителя и получателя
+    if (currency === 'at') {
+      sender.tokenAmount -= founds;
+      recipient.tokenAmount += founds;
+    } else if (currency === 'ac') {
+      sender.coinAmount -= founds;
+      recipient.coinAmount += founds;
+    }
+
+    // Сохраняем изменения
+    await sender.save();
+    await recipient.save();
+
+    // Завершаем транзакцию
+    await session.commitTransaction();
+    session.endSession();
+
+    return Response.json(true);
   } catch (error) {
-
+    // Откатываем транзакцию при ошибке
+    await session.abortTransaction();
+    session.endSession();
+    return Response.json({ error: error.message });
   }
-
-  return Response.json(true);
 }
