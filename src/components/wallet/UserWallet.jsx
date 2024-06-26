@@ -40,20 +40,30 @@ const UserWallet = () => {
 
 
   async function sendFounds(e) {
-      e.preventDefault();
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    try {
       const response = await fetch('/api/wallet', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            address,
-            currency,
-            founds
-          }),
-    });
-    if (response.ok) {
-            
-    } else {
-        
+          address,
+          currency,
+          founds: parseInt(founds)
+        }),
+      });
+  
+      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send funds');
+      }
+  
+      // Дополнительная логика при успешном переводе
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
     }
   }
 
