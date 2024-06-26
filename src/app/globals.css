@@ -8,6 +8,22 @@
     margin: 0;
 }
 
+
+@layer utilities {
+  .input-autofill {
+    @apply bg-gray-800 text-white;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #252627 inset !important; /* Замените #1a202c на ваш цвет фона */
+    -webkit-text-fill-color: #ff8a28 !important; /* Замените #fff на ваш цвет текста */
+    background-color: #252627 !important; /* Замените #1a202c на ваш цвет фона */
+  }
+}
+
 .no-arrows {
     -moz-appearance: textfield;
 }
