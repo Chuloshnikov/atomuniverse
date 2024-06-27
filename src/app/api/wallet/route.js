@@ -68,12 +68,9 @@ export async function PUT(req) {
   const { address, currency, founds } = data; // Адрес получателя, валюта, сумма
 console.log(founds);
   try {
-    // Начинаем транзакцию
-    const session = await mongoose.startSession();
-    session.startTransaction();
 
     // Находим кошелек отправителя
-    const sender = await Wallet.findOne({ email }).session(session);
+    const sender = await Wallet.findOne({ email });
     if (!sender) {
       throw new Error('Sender not found');
     }
@@ -84,7 +81,7 @@ console.log(founds);
     }
 
     // Находим кошелек получателя
-    const recipient = await Wallet.findOne({ address }).session(session);
+    const recipient = await Wallet.findOne({ address });
     if (!recipient) {
       throw new Error('Recipient not found');
     }
