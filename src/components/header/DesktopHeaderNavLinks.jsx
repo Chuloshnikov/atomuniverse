@@ -4,7 +4,7 @@ const DesktopHeaderNavLinks = () => {
   return (
     <ul className="flex gap-6">
     <li className="nav-link">
-      <Link className="nav-link" href={'/marketplace'}>marketplace</Link>
+      <Link className="nav-link" href={'/marketplace/tokens'}>marketplace</Link>
     </li>
     <li className="nav-link">
       <Link className="nav-link" href={'/learn'}>learn</Link>
