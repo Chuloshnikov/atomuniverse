@@ -18,23 +18,28 @@ const UserTabs = () => {
             className={`border-2 border-accentBg xs:rounded-t-md md:rounded-r-none md:rounded-l-md ${path === '/profile' ? 'active' : ''}`}>
                 Profile
             </Link>
+            <Link 
+            href={"/blockchain"}
+            className={`border-2 border-accentBg ${path.includes('blockchain') ? 'active' : ''}`}>
+                    Blockchain
+            </Link>
             {isAdmin && (
                 <>
                     <Link 
-                    href={"/testnet"}
-                    className={`border-2 border-accentBg ${path === '/blockchain' ? 'active' : ''}`}
+                    href={"/profile/items"}
+                    className={`border-2 border-accentBg ${path.includes('items') ? 'active' : ''}`}
                     >
-                        Testnet
+                        Items
                     </Link>
                     <Link 
-                    href={"/nft"}
-                    className={`border-2 border-accentBg ${path === '/nft' ? 'active' : ''}`}
+                    href={"/profile/nft"}
+                    className={`border-2 border-accentBg ${path.includes('nft') ? 'active' : ''}`}
                     >
                         NFT
                     </Link>
                     <Link 
                     href={'/users'}
-                    className={`border-2 border-accentBg ${path === '/users' ? 'active' : ''}`}
+                    className={`border-2 border-accentBg ${path.includes('users') ? 'active' : ''}`}
                     >
                         Users
                     </Link>
@@ -43,7 +48,7 @@ const UserTabs = () => {
             )}
              <Link 
                 href={'/wallet'}
-                className={`border-2 border-accentBg xs:rounded-b-md md:rounded-l-none md:rounded-r-md ${path === '/wallet' ? 'active' : ''}`}
+                className={`border-2 border-accentBg xs:rounded-b-md md:rounded-l-none md:rounded-r-md ${path.includes('wallet') ? 'active' : ''}`}
                 >
                     Wallet
             </Link>
