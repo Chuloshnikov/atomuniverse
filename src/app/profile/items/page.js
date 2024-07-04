@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import Image from 'next/image';
 
-export default function CreatedItems() {
+export default function Items() {
 
   const [menuItems, setMenuItems] = useState([]);
   const {loading, data} = useProfile();
@@ -38,7 +38,7 @@ export default function CreatedItems() {
               <Link 
               className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
               text-white rounded-md mr-4 flex gap-1 items-center max-w-max font-semibold"
-              href={'/menu-items/new'}
+              href={'/profile/items/new'}
               >
                   <span>Create new item</span>
                   <FaArrowAltCircleRight className='w-5 h-5'/>
@@ -50,7 +50,7 @@ export default function CreatedItems() {
                   {menuItems?.length > 0 && menuItems.map(item => (
                       <Link 
                       key={item._id}
-                      href={'/items/edit/' + item._id}
+                      href={'/profile/items/edit/' + item._id}
                       className='bg-gray-200 rounded-lg p-4'>
                           <div className='relative'>
                               <Image src={item.image} alt="item image" width={200} height={200}/>
