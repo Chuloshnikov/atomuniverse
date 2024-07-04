@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PiUserCircleThin } from "react-icons/pi";
+import { BsFillImageFill } from "react-icons/bs";
 
 
 const EditableImage = ({link, setLink, setUploading}) => {
@@ -43,7 +43,7 @@ const EditableImage = ({link, setLink, setUploading}) => {
                 </div>
                 ) : (
                 <div className="w-[100px] h-[100px]">
-                    <PiUserCircleThin className="text-black w-[100px] h-[100px] mx-auto"/>
+                    <BsFillImageFill className="text-black w-[100px] h-[100px] mx-auto"/>
                 </div>
                 )}
                 <label>

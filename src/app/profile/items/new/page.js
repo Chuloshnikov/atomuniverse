@@ -11,15 +11,39 @@ export default function NewItemPage() {
 
     const [image, setImage] = useState('');
     const [name, setName] = useState('');
-    const [scu, setScu] = useState('');
+    const [contract, setContract] = useState('');
     const [category, setCategory] = useState('');
     const [price, setPrice] = useState('');
+    const [uploading, setUploading] = useState('');
     const [redirectToItems, setRedirectToItems] = useState(false);
     const {loading, data} = useProfile();
 
 
     async function handleFormSubmit() {
+      e.preventDefault();
 
+      const data = {image, name, description, basePrice, sizes, extraIngredientPrices, category};
+      const savingPromise = new Promise(async (resolve, reject) => {
+          const response = await fetch('/api/menu-items', {
+              method: 'POST',
+              body: JSON.stringify(data),
+              headers: {'Content-Type': 'application/json'}
+          });
+      
+          if (response.ok) {
+              resolve();
+          } else {
+              reject();
+          }
+      });
+
+      await toast.promise(savingPromise, {
+          loading: 'Saving this item',
+          success: 'Saved!',
+          error: 'Error',
+      });
+
+      setRedirectToItems(true);
     }
 
     if (redirectToItems) {
@@ -35,14 +59,15 @@ export default function NewItemPage() {
     }
 
   return (
-    <section className="mt-8">
+    <section className="mt-12">
         <UserTabs isAdmin={true}/>
         <div
         className='max-w-lg mx-auto mt-8'
         >
+          
             <Link 
             className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
-            text-white rounded-md mr-4 flex gap-1 items-center max-w-max font-semibold"
+            text-white rounded-md ml-6 mdl:ml-4 flex gap-1 items-center max-w-max font-semibold"
             href={'/profile/items'}
             >
                 <span>Show all items</span>
@@ -53,11 +78,11 @@ export default function NewItemPage() {
         onSubmit={handleFormSubmit} 
         className='mt-8 max-w-xl mx-auto'
         >
-            <div className='flex items-start gap-4'>
+            <div className='flex flex-col items-center items-start gap-4'>
                 <div>
                     <EditableImage link={image} setLink={setImage}/>
                 </div>
-                <div className='grow'>
+                <div className='grow mx-4'>
                     <label>Item name</label>
                     <input 
                     onChange={e => setName(e.target.value)}
@@ -66,19 +91,19 @@ export default function NewItemPage() {
                     />
                     <label>Description</label>
                     <input 
-                    onChange={e => setDescription(e.target.value)}
-                    value={description}
+                    onChange={e => setContract(e.target.value)}
+                    value={contract}
                     type="text"
                     />
                     <label>Category</label>
                     <select onChange={e => setCategory(e.target.value)}>
                         <option value={"voucher"}>voucher</option>
-                        <option value={"nft"}></option>
+                        <option value={"nft"}>nft</option>
                     </select>
                     <label>Base Price</label>
                     <input
                     onChange={e => setBasePrice(e.target.value)}
-                    value={Price}
+                    value={price}
                     type="text"
                     />
                     <button type='submit'>Save</button>
