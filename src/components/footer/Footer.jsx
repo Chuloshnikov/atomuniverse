@@ -52,7 +52,7 @@ const Footer = () => {
       </div>
         <div className="mx-auto text-center mt-[80px]">
           <h4 className="font-bold text-2xl">ATOM UNIVERSE</h4>
-          <p>&copy; 2024 All rights reserved</p>
+          <p className="text-xs">&copy; 2024 All rights reserved</p>
         </div>
     </footer>
   )

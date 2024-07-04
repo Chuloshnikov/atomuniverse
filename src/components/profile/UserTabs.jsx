@@ -32,12 +32,6 @@ const UserTabs = () => {
                         Items
                     </Link>
                     <Link 
-                    href={"/profile/nft"}
-                    className={`border-2 border-accentBg ${path.includes('nft') ? 'active' : ''}`}
-                    >
-                        NFT
-                    </Link>
-                    <Link 
                     href={'/users'}
                     className={`border-2 border-accentBg ${path.includes('users') ? 'active' : ''}`}
                     >
@@ -46,6 +40,12 @@ const UserTabs = () => {
                    
                 </>
             )}
+            <Link 
+                href={"/profile/nft"}
+                className={`border-2 border-accentBg ${path.includes('nft') ? 'active' : ''}`}
+                >
+                    NFT
+            </Link>
              <Link 
                 href={'/wallet'}
                 className={`border-2 border-accentBg xs:rounded-b-md md:rounded-l-none md:rounded-r-md ${path.includes('wallet') ? 'active' : ''}`}
