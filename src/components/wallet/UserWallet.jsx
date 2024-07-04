@@ -118,7 +118,6 @@ const UserWallet = () => {
                 <option value="at">Atomic Token</option>
                 <option value="ac" selected>Atomcoin</option>
             </select>
-            {currency}
             <button 
             className="mt-4 shadow-button bg-accentBg hover:bg-smouthText 
             px-4 py-2 text-white rounded-md mr-4 
