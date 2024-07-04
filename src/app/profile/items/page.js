@@ -29,7 +29,7 @@ export default function Items() {
 
   return (
     <section
-    className="mt-12 max-w-lg p-4 mx-auto"
+    className="mt-8 max-w-lg p-4 mx-auto"
     >
         <UserTabs/>
           <div
