@@ -22,26 +22,19 @@ export default function NewItemPage() {
     async function handleFormSubmit() {
       e.preventDefault();
 
-      const data = {image, name, description, basePrice, sizes, extraIngredientPrices, category};
-      const savingPromise = new Promise(async (resolve, reject) => {
-          const response = await fetch('/api/menu-items', {
-              method: 'POST',
-              body: JSON.stringify(data),
-              headers: {'Content-Type': 'application/json'}
-          });
+      const data = {image, name,  contract, category, price};
       
-          if (response.ok) {
-              resolve();
-          } else {
-              reject();
-          }
-      });
-
-      await toast.promise(savingPromise, {
-          loading: 'Saving this item',
-          success: 'Saved!',
-          error: 'Error',
-      });
+        const response = await fetch('/api/menu-items', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {'Content-Type': 'application/json'}
+        });
+      
+        if (response.ok) {
+            resolve();
+        } else {
+            reject();
+        }
 
       setRedirectToItems(true);
     }
@@ -80,7 +73,7 @@ export default function NewItemPage() {
         >
             <div className='flex flex-col items-center items-start gap-4'>
                 <div>
-                    <EditableImage link={image} setLink={setImage}/>
+                    <EditableImage link={image} setLink={setImage} setUploading={setUploading}/>
                 </div>
                 <div className='grow mx-4'>
                     <label>Item name</label>
@@ -102,7 +95,7 @@ export default function NewItemPage() {
                     </select>
                     <label>Base Price</label>
                     <input
-                    onChange={e => setBasePrice(e.target.value)}
+                    onChange={e => setPrice(e.target.value)}
                     value={price}
                     type="text"
                     />
