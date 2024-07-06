@@ -16,6 +16,13 @@ export default function ProfilePage() {
     const [uploading, setUploading] = useState(false);
     const [profileFetched, setProfileFetched] = useState(false);
     const {status} = session;
+        
+    
+    {/*UI States*/}
+    const [isUploading, setIsUploading] = useState(false);
+    const [isSaving, setIsSaving] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const [saved, setSaved] = useState(false);
 
     useEffect(() => {
         if (status === 'authenticated') {

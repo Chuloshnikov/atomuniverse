@@ -18,6 +18,12 @@ export default function NewItemPage() {
     const [redirectToItems, setRedirectToItems] = useState(false);
     const {loading, data} = useProfile();
 
+    {/*UI States*/}
+    const [isUploading, setIsUploading] = useState(false);
+    const [isSaving, setIsSaving] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const [saved, setSaved] = useState(false);
+
 
     async function handleFormSubmit() {
       e.preventDefault();
