@@ -14,47 +14,53 @@ export default function NewItemPage() {
     const [contract, setContract] = useState('');
     const [category, setCategory] = useState('');
     const [price, setPrice] = useState('');
-    const [uploading, setUploading] = useState('');
     const [redirectToItems, setRedirectToItems] = useState(false);
     const {loading, data} = useProfile();
 
     {/*UI States*/}
-    const [isUploading, setIsUploading] = useState(false);
+    const [uploading, setUploading] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
     const [isError, setIsError] = useState(false);
     const [saved, setSaved] = useState(false);
-
+    const [error, setError] = useState(false);
 
     async function handleFormSubmit() {
       e.preventDefault();
-
       const data = {image, name, contract, category, price};
-      
         const response = await fetch('/api/menu-items', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {'Content-Type': 'application/json'}
         });
-      
         if (response.ok) {
-            setImage(response.JSON.stringify())
+            setIsSaving(false);
+            setSaved(true);
+            setRedirectToItems(true);
         } else {
-            reject();
+            setIsSaving(false);
+            setError(true);
         }
 
-      setRedirectToItems(true);
     }
 
     if (redirectToItems) {
-        return redirect('/items');
+        return redirect('profile/items');
     }
 
     if (loading) {
-        return 'Loading user info...';
+        return (
+            <div className='flex text-center w-screen h-screen(-20%)'>
+                Loading user info.
+            </div>
+        );
     }
 
     if (!data.admin) {
-        return "Not an admin.";
+        return (
+            <div className='flex text-center w-screen h-screen(-20%)'>
+                Not an admin.
+            </div>
+        );
     }
 
   return (
@@ -79,7 +85,7 @@ export default function NewItemPage() {
         >
             <div className='flex flex-col items-center gap-4'>
                 <div>
-                    <EditableImage link={image} setLink={setImage} setUploading={setUploading}/>
+                    <EditableImage link={image} setError={setError} setLink={setImage} setUploading={setUploading}/>
                     
                 </div>
                 <div className='grow mx-4'>

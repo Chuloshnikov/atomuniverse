@@ -5,6 +5,7 @@ import {redirect} from "next/navigation";
 import UserTabs from "../../components/profile/UserTabs";
 import EditableImage from "@/components/EditableImage";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
+import SavingInfo from "@/components/ui/SavingInfo";
 
 export default function ProfilePage() {
 
@@ -13,16 +14,16 @@ export default function ProfilePage() {
     const [userName, setUserName] = useState('');
     const [image, setImage] = useState('');
     const [isAdmin, setIsAdmin] = useState(false);
-    const [uploading, setUploading] = useState(false);
     const [profileFetched, setProfileFetched] = useState(false);
     const {status} = session;
         
     
     {/*UI States*/}
-    const [isUploading, setIsUploading] = useState(false);
+    const [uploading, setUploading] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
     const [isError, setIsError] = useState(false);
     const [saved, setSaved] = useState(false);
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         if (status === 'authenticated') {
@@ -39,8 +40,24 @@ export default function ProfilePage() {
 
     }, [session, status]);
 
+    
+useEffect(() => {
+    if (saved) {
+        setTimeout(() => {
+            setSaved(false);
+        }, 2000);
+    } else if (error) {
+        setTimeout(() => {
+            setError(false);
+        }, 2000);
+    }
+}, [saved, isError]);
+
+
+
     const handleProfileInfoUpdate = async (e) => {
         e.preventDefault();
+        setIsSaving(true);
         const response = await fetch('/api/profile', {
             method: 'PUT',
             headers: {'Content-type': 'application/json'},
@@ -50,20 +67,28 @@ export default function ProfilePage() {
             })
         });
         if (response.ok) {
-            
+            setIsSaving(false);
+            setSaved(true);
         } else {
-            
+            setIsSaving(false);
+            setError(true);
         }
     }
 
 
     if (status === 'loading') {
-    return <LoadingSpinner/>;
+    return (
+        <div className='flex items-center justify-center'>
+            <LoadingSpinner/>
+        </div>
+        );
     };
 
     if (status === 'unauthenticated') {
     return redirect('/login');
     };
+
+    
 
 
     return (
@@ -71,7 +96,7 @@ export default function ProfilePage() {
               <UserTabs/>
             <div className="max-w-md mx-auto">
                     <div className="flex gap-2">
-                       <EditableImage link={image} setLink={setImage} setUploading={setUploading}/>
+                       <EditableImage link={image} setLink={setImage} setUploading={setUploading} setIsError={setIsError}/>
                         <form 
                         className="grow"
                         onSubmit={handleProfileInfoUpdate}
@@ -102,6 +127,10 @@ export default function ProfilePage() {
                         </form>
                     </div>
             </div>
+            {uploading && (<SavingInfo text={"Uploading..."}/>)}
+            {isSaving && (<SavingInfo text={"Saving..."}/>)}
+            {saved && (<SavingInfo text={"Saved..."}/>)}
+            {error && (<SavingInfo text={"Error..."}/>)}
         </section>
     )
 }
