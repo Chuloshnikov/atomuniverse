@@ -5,6 +5,7 @@ import { useProfile } from '@/components/UseProfile';
 import Link from 'next/link';
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import Image from 'next/image';
+import LoadingSpinner from '@/components/ui/LoadingSpinner';
 
 export default function Items() {
 
@@ -20,11 +21,19 @@ export default function Items() {
   }, [])
 
   if (loading) {
-      return 'Loading user info...';
+      return(
+        <div className='flex items-center justify-center'>
+            <LoadingSpinner/>
+        </div>
+      );
   }
 
   if (!data.admin) {
-      return 'Not an admin.';
+      return (
+        <div className='flex text-center w-screen h-screen(-20%)'>
+            Not an admin.
+        </div>
+    );
   }
 
   return (
