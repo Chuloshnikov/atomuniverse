@@ -10,7 +10,7 @@ const EditableImage = ({link, setLink, setUploading, setError}) => {
             const data = new FormData();
             data.set('file', files[0]);
             setUploading(true);
-            const response = await fetch('api/upload', {
+            const response = await fetch('/api/upload', {
                 method: 'POST',
                 body: data,
             })
