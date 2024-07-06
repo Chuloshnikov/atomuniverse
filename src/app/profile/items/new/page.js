@@ -6,6 +6,7 @@ import { useProfile } from '@/components/UseProfile';
 import { redirect } from 'next/navigation';
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import EditableImage from '@/components/EditableImage';
+import SavingInfo from '@/components/ui/SavingInfo';
 
 export default function NewItemPage() {
 
@@ -14,47 +15,53 @@ export default function NewItemPage() {
     const [contract, setContract] = useState('');
     const [category, setCategory] = useState('');
     const [price, setPrice] = useState('');
-    const [uploading, setUploading] = useState('');
     const [redirectToItems, setRedirectToItems] = useState(false);
     const {loading, data} = useProfile();
 
     {/*UI States*/}
-    const [isUploading, setIsUploading] = useState(false);
+    const [uploading, setUploading] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
     const [isError, setIsError] = useState(false);
     const [saved, setSaved] = useState(false);
+    const [error, setError] = useState(false);
 
-
-    async function handleFormSubmit() {
+    async function handleFormSubmit(e) {
       e.preventDefault();
-
       const data = {image, name, contract, category, price};
-      
-        const response = await fetch('/api/menu-items', {
+        const response = await fetch('/api/items', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {'Content-Type': 'application/json'}
         });
-      
         if (response.ok) {
-            setImage(response.JSON.stringify())
+            setIsSaving(false);
+            setSaved(true);
+            setRedirectToItems(true);
         } else {
-            reject();
+            setIsSaving(false);
+            setError(true);
         }
 
-      setRedirectToItems(true);
     }
 
     if (redirectToItems) {
-        return redirect('/items');
+        return redirect('profile/items');
     }
 
     if (loading) {
-        return 'Loading user info...';
+        return (
+            <div className='flex text-center w-screen h-screen(-20%)'>
+                Loading user info.
+            </div>
+        );
     }
 
     if (!data.admin) {
-        return "Not an admin.";
+        return (
+            <div className='flex text-center w-screen h-screen(-20%)'>
+                Not an admin.
+            </div>
+        );
     }
 
   return (
@@ -73,15 +80,14 @@ export default function NewItemPage() {
                 <FaArrowAltCircleLeft className='w-5 h-5'/>
             </Link>
         </div>
+        <div className='mx-auto max-w-[300px] mt-8'>
+            <EditableImage link={image} setError={setError} setLink={setImage} setUploading={setUploading}/>
+        </div>
         <form
         onSubmit={handleFormSubmit} 
-        className='mt-8 max-w-xl mx-auto'
+        className='mt-4 max-w-xl mx-auto'
         >
             <div className='flex flex-col items-center gap-4'>
-                <div>
-                    <EditableImage link={image} setLink={setImage} setUploading={setUploading}/>
-                    
-                </div>
                 <div className='grow mx-4'>
                     <label>Item name</label>
                     <input 
@@ -117,6 +123,10 @@ export default function NewItemPage() {
                 </div>
             </div>
         </form>
+            {uploading && (<SavingInfo text={"Uploading..."}/>)}
+            {isSaving && (<SavingInfo text={"Saving..."}/>)}
+            {saved && (<SavingInfo text={"Saved..."}/>)}
+            {error && (<SavingInfo text={"Error..."}/>)}
     </section>
   )
 }
