@@ -2,7 +2,7 @@ import Image from "next/image";
 import { BsFillImageFill } from "react-icons/bs";
 
 
-const EditableImage = ({link, setLink, setUploading}) => {
+const EditableImage = ({link, setLink, setUploading, setError}) => {
 
     const handleFileChange = async (e) => {
         const files = e.target.files;

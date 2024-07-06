@@ -22,7 +22,7 @@ export default function NewItemPage() {
     async function handleFormSubmit() {
       e.preventDefault();
 
-      const data = {image, name,  contract, category, price};
+      const data = {image, name, contract, category, price};
       
         const response = await fetch('/api/menu-items', {
             method: 'POST',
@@ -31,7 +31,7 @@ export default function NewItemPage() {
         });
       
         if (response.ok) {
-            resolve();
+            setImage(response.JSON.stringify())
         } else {
             reject();
         }
@@ -71,9 +71,10 @@ export default function NewItemPage() {
         onSubmit={handleFormSubmit} 
         className='mt-8 max-w-xl mx-auto'
         >
-            <div className='flex flex-col items-center items-start gap-4'>
+            <div className='flex flex-col items-center gap-4'>
                 <div>
                     <EditableImage link={image} setLink={setImage} setUploading={setUploading}/>
+                    
                 </div>
                 <div className='grow mx-4'>
                     <label>Item name</label>
@@ -82,7 +83,7 @@ export default function NewItemPage() {
                     value={name}
                     type="text"
                     />
-                    <label>Description</label>
+                    <label>Contract name</label>
                     <input 
                     onChange={e => setContract(e.target.value)}
                     value={contract}
@@ -93,13 +94,20 @@ export default function NewItemPage() {
                         <option value={"voucher"}>voucher</option>
                         <option value={"nft"}>nft</option>
                     </select>
-                    <label>Base Price</label>
+                    <label>Price</label>
                     <input
                     onChange={e => setPrice(e.target.value)}
                     value={price}
                     type="text"
                     />
-                    <button type='submit'>Save</button>
+                    <button 
+                    className="mt-4 shadow-button bg-accentBg hover:bg-smouthText 
+                    px-4 py-2 text-white rounded-md mr-4 
+                    font-semibold text-white w-full"
+                    type='submit'
+                    >
+                        Save
+                    </button>
                 </div>
             </div>
         </form>
