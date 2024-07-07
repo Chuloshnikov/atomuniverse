@@ -9,13 +9,14 @@ import LoadingSpinner from '@/components/ui/LoadingSpinner';
 
 export default function Items() {
 
-  const [menuItems, setMenuItems] = useState([]);
+  const [items, setItems] = useState([]);
   const {loading, data} = useProfile();
+  console.log(items);
 
   useEffect(() => {
-      fetch('api/items').then(res => {
-          res.json().then(menuItems => {
-              setMenuItems(menuItems);
+      fetch('/api/items').then(res => {
+          res.json().then(items => {
+            setItems(items);
           })
       })
   }, [])
@@ -54,9 +55,9 @@ export default function Items() {
               </Link>
           </div> 
           <div>
-            <h2 className='text-sm text-gray-500 mt-8'>Edit menu item:</h2>
+            <h2 className='text-sm text-gray-500 mt-8'>Edit item:</h2>
               <div className='grid grid-cols-3 gap-2'>
-                  {menuItems?.length > 0 && menuItems.map(item => (
+                  {items?.length > 0 && items.map(item => (
                       <Link 
                       key={item._id}
                       href={'/profile/items/edit/' + item._id}
