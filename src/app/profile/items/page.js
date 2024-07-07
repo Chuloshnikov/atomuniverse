@@ -11,7 +11,6 @@ export default function Items() {
 
   const [items, setItems] = useState([]);
   const {loading, data} = useProfile();
-  console.log(items);
 
   useEffect(() => {
       fetch('/api/items').then(res => {
@@ -61,7 +60,7 @@ export default function Items() {
                       <Link 
                       key={item._id}
                       href={'/profile/items/edit/' + item._id}
-                      className='bg-black text-white rounded-lg p-4'>
+                      className='bg-black text-white flex flex-col gap-2 rounded-lg p-4'>
                           <div className='relative'>
                               <Image src={item.image} alt="item image" width={200} height={200}/>
                           </div>
