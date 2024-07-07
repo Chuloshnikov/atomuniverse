@@ -5,9 +5,9 @@ const ItemSchema = new Schema({
     image: {type: String},
     name: {type: String},
     contract: {type: String},
-    category: {type: mongoose.Types.ObjectId},
+    category: {type: String},
     price: {type: Number}
 }, {timestamps: true});
 
 
-export const Item = models?.MenuItem || model('Item', ItemSchema);
+export const Item = models?.Item || model('Item', ItemSchema);
