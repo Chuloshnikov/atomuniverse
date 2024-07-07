@@ -17,7 +17,6 @@ export default function NewItemPage() {
     const [price, setPrice] = useState('');
     const [redirectToItems, setRedirectToItems] = useState(false);
     const {loading, data} = useProfile();
-    console.log(category);
 
     {/*UI States*/}
     const [uploading, setUploading] = useState(false);
@@ -46,7 +45,7 @@ export default function NewItemPage() {
     }
 
     if (redirectToItems) {
-        return redirect('profile/items');
+        return redirect('/profile/items');
     }
 
     if (loading) {
