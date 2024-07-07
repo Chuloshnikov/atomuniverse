@@ -6,8 +6,8 @@ export async function POST(req) {
     mongoose.connect(process.env.MONGODB_URL);
     const data = await req.json();
     if (await isAdmin()) {
-        const menuItemDoc = await MenuItem.create(data);
-        return Response.json(menuItemDoc);
+        const itemDoc = await Item.create(data);
+        return Response.json(itemDoc);
     } else {
         return Response.json({});
     }
@@ -17,7 +17,7 @@ export async function PUT(req) {
     mongoose.connect(process.env.MONGODB_URL);
     if (await isAdmin()) {
         const {_id, ...data} = await req.json();
-        await MenuItem.findByIdAndUpdate(_id, data);
+        await Item.findByIdAndUpdate(_id, data);
     }
     
     return Response.json(true);
@@ -26,7 +26,7 @@ export async function PUT(req) {
 export async function GET() {
     mongoose.connect(process.env.MONGODB_URL);
     return Response.json(
-        await MenuItem.find()
+        await Item.find()
     );
 }
 
@@ -35,7 +35,7 @@ export async function DELETE(req) {
     const url = new URL(req.url);
     const _id = url.searchParams.get('_id');
     if (await isAdmin()) {
-      await MenuItem.deleteOne({_id});
+      await Item.deleteOne({_id});
     }
     return Response.json(true);
   }

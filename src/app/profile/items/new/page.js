@@ -13,10 +13,11 @@ export default function NewItemPage() {
     const [image, setImage] = useState('');
     const [name, setName] = useState('');
     const [contract, setContract] = useState('');
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState('voucher');
     const [price, setPrice] = useState('');
     const [redirectToItems, setRedirectToItems] = useState(false);
     const {loading, data} = useProfile();
+    console.log(category);
 
     {/*UI States*/}
     const [uploading, setUploading] = useState(false);
@@ -66,7 +67,7 @@ export default function NewItemPage() {
 
   return (
     <section className="mt-12">
-        <UserTabs isAdmin={true}/>
+        <UserTabs/>
         <div
         className='max-w-lg mx-auto mt-8'
         >
@@ -102,7 +103,7 @@ export default function NewItemPage() {
                     type="text"
                     />
                     <label>Category</label>
-                    <select onChange={e => setCategory(e.target.value)}>
+                    <select defaultValue={"voucher"} onChange={e => setCategory(e.target.value)}>
                         <option value={"voucher"}>voucher</option>
                         <option value={"nft"}>nft</option>
                     </select>
