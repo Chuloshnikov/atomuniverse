@@ -3,17 +3,19 @@ import {useState, useEffect} from 'react';
 import UserTabs from '@/components/profile/UserTabs';
 import Link from 'next/link';
 import { useProfile } from '@/components/UseProfile';
-import { redirect } from 'next/navigation';
+import { redirect, useParams } from 'next/navigation';
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import EditableImage from '@/components/EditableImage';
 import SavingInfo from '@/components/ui/SavingInfo';
 
-export default function NewItemPage() {
+export default function EditItemPage() {
+
+    const {id} = useParams();
 
     const [image, setImage] = useState('');
     const [name, setName] = useState('');
     const [contract, setContract] = useState('');
-    const [category, setCategory] = useState('voucher');
+    const [category, setCategory] = useState('');
     const [price, setPrice] = useState('');
     const [redirectToItems, setRedirectToItems] = useState(false);
     const {loading, data} = useProfile();
@@ -24,12 +26,26 @@ export default function NewItemPage() {
     const [saved, setSaved] = useState(false);
     const [error, setError] = useState(false);
 
+    useEffect(() => {
+        fetch('/api/items').then(res => {
+            res.json().then(items => {
+                const item = items.find(item => item._id === id);
+                setImage(item.image);
+                setName(item.name);
+                setContract(item.contract);
+                setCategory(item.category);
+                setPrice(item.price);
+            });
+        });
+
+    }, [id]);
+
     async function handleFormSubmit(e) {
       e.preventDefault();
       setIsSaving(true);
-      const data = {image, name, contract, category, price};
+      const data = {image, name, contract, category, price, _id: id};
         const response = await fetch('/api/items', {
-            method: 'POST',
+            method: 'PUT',
             body: JSON.stringify(data),
             headers: {'Content-Type': 'application/json'}
         });
