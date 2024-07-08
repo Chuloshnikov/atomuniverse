@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
         <body className={lato.className}>
           <Providers>
               <main className="max-w-7xl mx-auto">
-                <Header/>
+              <Header/>
                   {children}
               </main>
               <Footer/>
