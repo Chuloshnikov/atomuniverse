@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 export default function TokensPage() {
 
   const [vouchers, setVouchers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('/api/items')
@@ -13,10 +14,18 @@ export default function TokensPage() {
       .then(data => {
         const filteredVouchers = data.filter(item => item.category === 'voucher');
         setVouchers(filteredVouchers);
+        setLoading(false);
       })
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
+  if (loading) {
+    return(
+      <div className='flex items-center justify-center'>
+          <LoadingSpinner/>
+      </div>
+    );
+}
   return (
     <div className='max-w-2xl mx-auto mt-12 p-4 pb-12'>
       <div className='mx-auto flex items-center justify-center rounded-md'>

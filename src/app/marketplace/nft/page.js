@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 export default function NftPage() {
 
   const [nfts, setNfts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('/api/items')
@@ -13,9 +14,19 @@ export default function NftPage() {
       .then(data => {
         const filteredNfts = data.filter(item => item.category === 'nft');
         setNfts(filteredNfts);
+        setLoading(false);
       })
       .catch(error => console.error('Error fetching data:', error));
   }, []);
+
+
+  if (loading) {
+    return(
+      <div className='flex items-center justify-center'>
+          <LoadingSpinner/>
+      </div>
+    );
+}
 
   return (
     <div className='max-w-2xl mx-auto mt-12 p-4 pb-12'>
