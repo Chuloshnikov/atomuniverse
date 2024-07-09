@@ -42,8 +42,8 @@ export default function NftPage() {
           </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-8">
-          {nfts && nfts.map(nft => (
-            <div className="bg-black rounded-md flex justify-center items-center p-4">
+          {nfts.length > 0 && nfts.map(nft => (
+            <div className="bg-black rounded-md flex justify-center items-center p-4 hover:bg-yellow-400 hover:text-black duration-300">
               <div className="flex flex-col gap-2 text-center">
                 <Image src={nft.image} width={200} height={100} className="rounded-md" alt={nft.name}/>
                 <h3 className="font-semibold">{nft.name}</h3>
