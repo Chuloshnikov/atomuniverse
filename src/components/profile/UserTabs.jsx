@@ -32,7 +32,7 @@ const UserTabs = () => {
                         Items
                     </Link>
                     <Link 
-                    href={'/users'}
+                    href={'/profile/users'}
                     className={`border-2 border-accentBg ${path.includes('users') ? 'active' : ''}`}
                     >
                         Users
