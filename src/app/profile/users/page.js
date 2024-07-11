@@ -13,7 +13,7 @@ export default async function Users() {
         return 'Not logged in';
     }
 
-    await mongoose.connect(process.env.MONGODB_URI);
+    await mongoose.connect(process.env.MONGODB_URL);
 
 
   return (
