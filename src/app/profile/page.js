@@ -92,7 +92,7 @@ useEffect(() => {
 
 
     return (
-        <section className="mt-12 p-4">
+        <section className="mt-12 p-4 pb-8">
               <UserTabs/>
             <div className="max-w-md mx-auto">
                     <div className="flex gap-2">
