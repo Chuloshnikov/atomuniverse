@@ -1,4 +1,5 @@
 "use client"
+import MarketplaceItemBox from "@/components/marketplace/MarketplaceItemBox";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,6 +9,7 @@ export default function TokensPage() {
 
   const [vouchers, setVouchers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [openPopup, setOpenPopup] = useState(false);
 
   useEffect(() => {
     fetch('/api/items')
@@ -39,11 +41,12 @@ export default function TokensPage() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-8">
           {vouchers.length > 0 && vouchers.map(voucher => (
-            <div className="bg-black hover:bg-yellow-400 hover:text-black rounded-md flex justify-center items-center p-4 duration-300 w-full">
+            <div onClick={() => setOpenPopup(true)} key={voucher._id} className="bg-black hover:bg-yellow-400 hover:text-black rounded-md flex justify-center items-center p-4 duration-300 w-full">
               <div className="flex flex-col gap-2 text-center">
-                <Image src={voucher.image} width={300} height={200} className="rounded-md" alt={voucher.name}/>
+                <Image src={voucher.image} width={300} height={200} priority={true} className="rounded-md" alt={voucher.name}/>
                 <h3 className="font-semibold">{voucher.name}</h3>
               </div>
+              {openPopup && <MarketplaceItemBox itemInfo={voucher}/>}
             </div>
           ))}
       </div>
