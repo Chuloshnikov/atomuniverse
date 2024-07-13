@@ -4,6 +4,8 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import UserTabs from "@/components/profile/UserTabs";
 import { getServerSession } from "next-auth";
 import mongoose from "mongoose";
+import { User } from "@/models/User";
+import UserInfo from "@/components/users/UserInfo";
 
 
 export default async function Users() {
@@ -14,12 +16,17 @@ export default async function Users() {
     }
 
     await mongoose.connect(process.env.MONGODB_URL);
+    const users = JSON.parse(JSON.stringify(await User.find()))
 
 
   return (
-    <div>
-        <UserTabs/>
-        
-    </div>
+    <section className="mt-12 p-4">
+        <div className="mx-auto flex flex-col items-center">
+            <UserTabs/>
+            <div>
+                {users && users.map(user => <UserInfo key={user._id} user={user}/>)}
+            </div>
+        </div>
+    </section>
   )
 }
