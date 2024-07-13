@@ -21,7 +21,7 @@ const UserInfo = ({ user }) => {
         <Link 
           className="shadow-button bg-accentBg hover:bg-smouthText px-4 py-2
           text-white rounded-md ml-6 mdl:ml-4 flex gap-1 items-center max-w-max font-semibold"
-          href={'profile/users/' + user._id}>
+          href={'/profile/users/' + user._id}>
               Edit
         </Link>
     </div>
