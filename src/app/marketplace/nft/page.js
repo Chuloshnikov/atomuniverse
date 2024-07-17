@@ -22,6 +22,10 @@ export default function NftPage() {
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
+  const togglePopup = () => {
+    setOpenPopup(!openPopup);
+  }
+
 
   if (loading) {
     return(
@@ -50,7 +54,7 @@ export default function NftPage() {
                 <Image src={nft.image} width={300} height={200} priority={true} className="rounded-md" alt={nft.name}/>
                 <h3 className="font-semibold">{nft.name}</h3>
               </div>
-              {openPopup && <MarketplaceItemBox itemInfo={nft}/>}
+              {openPopup && <MarketplaceItemBox toggle={togglePopup} itemInfo={nft}/>}
             </div>
           ))}
       </div>
