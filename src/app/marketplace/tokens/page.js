@@ -23,7 +23,7 @@ export default function TokensPage() {
   }, []);
 
   const togglePopup = () => {
-    return setOpenPopup(!openPopup);
+    setOpenPopup(!openPopup);
   }
 
   if (loading) {
