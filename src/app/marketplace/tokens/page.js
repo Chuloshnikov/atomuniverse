@@ -22,6 +22,10 @@ export default function TokensPage() {
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
+  const togglePopup = () => {
+    return setOpenPopup(!openPopup);
+  }
+
   if (loading) {
     return(
       <div className='flex items-center justify-center'>
@@ -46,7 +50,7 @@ export default function TokensPage() {
                 <Image src={voucher.image} width={300} height={200} priority={true} className="rounded-md" alt={voucher.name}/>
                 <h3 className="font-semibold">{voucher.name}</h3>
               </div>
-              {openPopup && <MarketplaceItemBox itemInfo={voucher}/>}
+              {openPopup && <MarketplaceItemBox toggle={togglePopup} itemInfo={voucher}/>}
             </div>
           ))}
       </div>
