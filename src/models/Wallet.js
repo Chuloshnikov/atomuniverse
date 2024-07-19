@@ -4,6 +4,7 @@ import {Types, model, models, Schema } from 'mongoose';
 const NftSchema = new Schema({
     name: { type: String },
     image: { type: String },
+    contract: {type: String},
     coinPrice: { type: Types.Decimal128},
     tokenPrice: { type: Types.Decimal128},
 });
