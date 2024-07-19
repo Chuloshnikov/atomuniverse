@@ -1,13 +1,39 @@
 "use client"
 import Image from 'next/image';
-import React from 'react'
+import { useState } from 'react'
 import { FaWindowClose } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
+import { signOut, useSession } from "next-auth/react";
+import { useProfile } from '../UseProfile';
 
 const MarketplaceItemBox = ({itemInfo, toggle}) => {
+  const session = useSession();
+  const {data} = useProfile();
+
+          {/*UI States*/}
+          const [loading, setLoading] = useState(false);
+          const [done, setDone] = useState(false);
+          const [error, setError] = useState(false);
 
   async function buyItem(itemInfo) {
-    if (itemInfo.category === "nft") {
+    if (itemInfo.category === "nft" && session) {
+      const amt = itemInfo;
+        const response = await fetch('/api/buynft', {
+          method: 'POST',
+          headers: {'Content-type': 'application/json'},
+          body: JSON.stringify({
+            itemInfo,
+            data
+          })
+      });
+      if (response.ok) {
+          setIsSaving(false);
+          setSaved(true);
+      } else {
+          setIsSaving(false);
+          setError(true);
+      }
+    } else if (itemInfo.category === "voucher" && session) {
 
     }
   }
