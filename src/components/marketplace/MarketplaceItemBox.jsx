@@ -6,8 +6,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const MarketplaceItemBox = ({itemInfo, toggle}) => {
 
-  function buyItem() {
-    return console.log("done")
+  async function buyItem(itemInfo) {
+    if (itemInfo.category === "nft") {
+
+    }
   }
   return (
     <AnimatePresence>
