@@ -6,10 +6,10 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export default function NftPage() {
-
   const [nfts, setNfts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [openPopup, setOpenPopup] = useState(false);
+  const [selectedNft, setSelectedNft] = useState(null);
 
   useEffect(() => {
     fetch('/api/items')
@@ -26,6 +26,10 @@ export default function NftPage() {
     setOpenPopup(!openPopup);
   }
 
+  const handleNftClick = (nft) => {
+    setSelectedNft(nft);
+    setOpenPopup(true);
+  }
 
   if (loading) {
     return(
@@ -33,7 +37,7 @@ export default function NftPage() {
           <LoadingSpinner/>
       </div>
     );
-}
+  }
 
   return (
     <div className='max-w-6xl mx-auto mt-12 p-4 pb-12'>
@@ -49,15 +53,15 @@ export default function NftPage() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-8">
           {nfts.length > 0 && nfts.map(nft => (
-            <div onClick={() => setOpenPopup(true)} key={nft._id} className="bg-black rounded-md flex justify-center items-center p-4 hover:bg-yellow-400 hover:text-black duration-300 w-full">
+            <div onClick={() => handleNftClick(nft)} key={nft._id} className="bg-black rounded-md flex justify-center items-center p-4 hover:bg-yellow-400 hover:text-black duration-300 w-full">
               <div className="flex flex-col gap-2 text-center">
                 <Image src={nft.image} width={300} height={200} priority={true} className="rounded-md" alt={nft.name}/>
                 <h3 className="font-semibold">{nft.name}</h3>
               </div>
-              {openPopup && <MarketplaceItemBox toggle={togglePopup} itemInfo={nft}/>}
             </div>
           ))}
       </div>
+      {openPopup && <MarketplaceItemBox toggle={togglePopup} itemInfo={selectedNft}/>}
     </div>
   )
 }
