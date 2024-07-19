@@ -10,8 +10,10 @@ const MarketplaceItemBox = ({itemInfo, toggle}) => {
           <FaWindowClose className="h-7 w-7 text-accentBg hover:text-smouthText duration-200"/>
       </button>
       </div>
-      <div>
-        {itemInfo.name}
+      <div className=''>
+        <div>
+          {itemInfo.name}
+        </div>
       </div>
     </div>
   )
