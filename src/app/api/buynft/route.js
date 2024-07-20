@@ -10,14 +10,14 @@ export async function POST(req) {
         const userWallet = await Wallet.findOne(findWallet);
 
         if (!userWallet) {
-            return NextResponse.json({ error: 'Wallet not found' }, { status: 404 });
+            return Response.json({ error: 'Wallet not found' }, { status: 404 });
         }
 
         const nftPrice = itemInfo.price;
         const withdrawFromWallet = userWallet.tokenAmount - nftPrice;
 
         if (withdrawFromWallet < 0) {
-            return NextResponse.json({ error: 'Insufficient funds' }, { status: 400 });
+            return Response.json({ error: 'Insufficient funds' }, { status: 400 });
         }
 
         await Wallet.updateOne(findWallet, { tokenAmount: withdrawFromWallet });
@@ -31,10 +31,10 @@ export async function POST(req) {
 
         await Wallet.updateOne(findWallet, { $push: { nft } });
 
-        return NextResponse.json(true);
+        return Response.json(true);
 
     } catch (error) {
         console.error('Error:', error);
-        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+        return Response.json({ error: 'Internal Server Error' }, { status: 500 });
     }
 }
