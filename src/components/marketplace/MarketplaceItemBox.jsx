@@ -34,6 +34,7 @@ const MarketplaceItemBox = ({ itemInfo, toggle }) => {
         if (response.ok) {
           setLoading(false);
           setDone(true);
+          toggle();
         } else {
           setLoading(false);
           setError(true);
