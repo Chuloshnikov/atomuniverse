@@ -5,7 +5,7 @@ import { blockchainweb } from "@/assets/images";
 const MoreAboutBlockchainSection = () => {
   return (
     <div className="max-w-6xl mx-auto flex flex-col xl:flex-row gap-5 text-center mt-12">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 px-4">
             <h2 className="font-bold text-4xl mx-auto">More about Blockchain and Token</h2>
             <div className="mx-auto flex justify-center">
                 <Image src={blockchainweb} className="rounded-xl" width={1000} height={500} alt="blockchainweb"/>

@@ -11,7 +11,7 @@ const BlockchainPotentialSection = () => {
         <div className="w-full xl:max-w-[50%] rounded-xl p-4">
             <Image src={blokchain} className="rounded-xl" width={400} height={200} alt="blockchain"/>
         </div>
-        <div className="flex flex-col gap-4 p-2 font-semibold leading-snug text-center lgl:text-left max-w-[600px]">
+        <div className="flex flex-col gap-4 p-2 font-semibold leading-snug text-center lgl:text-left max-w-[600px] px-4">
             <p className="text-base lgl:text-2xl">
             <TypewriterEffect
                 text={text}
