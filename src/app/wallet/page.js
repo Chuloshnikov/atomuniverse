@@ -11,17 +11,22 @@ export default function WalletPage() {
     const {status} = session;
     
 
+        
     if (status === 'loading') {
-        return 'Loading...';
-        };
+        return(
+            <div className='flex items-center justify-center'>
+                <LoadingSpinner/>
+            </div>
+        );
+    }
     
-        if (status === 'unauthenticated') {
-        return redirect('/login');
-        };
+    if (status === 'unauthenticated') {
+        return redirect('/');
+    };
     
     return (
         <section className="max-w-md mx-auto mt-12 p-4">
-            <UserTabs isAdmin={true}/>
+            <UserTabs/>
             <Wallet/>
         </section>
     )

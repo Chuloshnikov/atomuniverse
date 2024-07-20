@@ -1,18 +1,14 @@
-import UserTabs from '@/components/profile/UserTabs'
-import React from 'react'
+import UserTabs from '@/components/profile/UserTabs';
+import React from 'react';
+import MyNftPage from '@/components/mynft/MyNftPage';
 
-export default function CreatedNfts() {
+export default function MyNfts() {
   return (
     <section
     className="mt-12 p-4"
     >
         <UserTabs/>
-        <div
-        className=''
-        >
-        <h2>All nft's</h2>
-            
-        </div>
+            <MyNftPage/>
     </section>
   )
 }
