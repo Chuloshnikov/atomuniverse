@@ -40,7 +40,17 @@ const MarketplaceItemBox = ({ itemInfo, toggle }) => {
           setError(true);
         }
       } else if (itemInfo.category === "voucher" && session) {
-        // Handle voucher purchase logic here
+        itemInfo.price
+        fetch('/api/checkout', {
+          method: 'POST',
+          headers: {'Content-Type:':'application/json'},
+          body: JSON.stringofy({
+            data,
+            itemInfo,
+          }),
+        });
+        const link = await response.json();
+        window.location = link;
       }
     } catch (err) {
       setLoading(false);
