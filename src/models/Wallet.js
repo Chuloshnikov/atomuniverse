@@ -1,4 +1,3 @@
-
 import {Types, model, models, Schema } from 'mongoose';
 
 const NftSchema = new Schema({

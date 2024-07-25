@@ -99,7 +99,9 @@ console.log(founds);
     await sender.save();
     await recipient.save();
 
-    // Завершаем транзакцию
+    // Завершаем транзакцию, записываем транзакцию
+
+    await BlockchainSchema.create({sender: sender.address}, {recipient: recipient.address}, currency, founds);
 
 
     return Response.json(true);
