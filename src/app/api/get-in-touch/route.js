@@ -1,4 +1,4 @@
-
+import mongoose from "mongoose";
 
 export async function POST(req) {
     mongoose.connect(process.env.MONGODB_URL);
