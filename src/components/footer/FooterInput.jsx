@@ -7,7 +7,7 @@ const FooterInput = () => {
 
   async function getInTouch(e) {
     e.preventDefault();
-    const response = await fetch('/api/get-in-touch' {
+    const response = await fetch('/api/get-in-touch', {
       method: 'POST',
       body: JSON.stringify(email),
       headers: {'Content-Type': 'application/json'}
@@ -28,6 +28,7 @@ const FooterInput = () => {
             onChange={e => setEmail(e.target.value)}
             className='text-sm lg:text-base py-2 px-5 rounded-3xl bg-black w-full text-mainText'
             placeholder='email'
+            value={email}
             />
             <button
             type='submit'
