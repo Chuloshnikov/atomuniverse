@@ -17,7 +17,6 @@ export default async function Users() {
 
     await mongoose.connect(process.env.MONGODB_URL);
     const users = JSON.parse(JSON.stringify(await User.find()))
-    console.log(users)
 
   return (
     <section className="mt-12 p-4">

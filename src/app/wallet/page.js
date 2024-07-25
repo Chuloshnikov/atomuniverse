@@ -3,6 +3,7 @@ import Wallet from "@/components/wallet/Wallet";
 import UserTabs from "../../components/profile/UserTabs";
 import { useSession } from "next-auth/react";
 import {redirect} from "next/navigation";
+import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
 
 export default function WalletPage() {
