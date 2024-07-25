@@ -51,7 +51,7 @@ export default function TokensPage() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-8">
           {vouchers.length > 0 && vouchers.map(voucher => (
-            <div onClick={() => handleVoucherClick(voucher)} key={voucher._id} className="bg-black hover:bg-yellow-400 hover:text-black rounded-md flex justify-center items-center p-4 duration-300 w-full">
+            <div onClick={() => handleVoucherClick(voucher)} key={voucher._id} className="bg-black hover:bg-yellow-400 hover:text-black rounded-md flex justify-center items-center p-4 duration-300 w-full cursor-pointer">
               <div className="flex flex-col gap-2 text-center">
                 <Image src={voucher.image} width={300} height={200} priority={true} className="rounded-md" alt={voucher.name}/>
                 <h3 className="font-semibold">{voucher.name}</h3>
