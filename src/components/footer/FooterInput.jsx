@@ -4,6 +4,7 @@ import { useState } from 'react'
 const FooterInput = () => {
 
   const [email, setEmail] = useState('');
+  console.log(email);
 
   async function getInTouch(e) {
     e.preventDefault();
@@ -15,13 +16,14 @@ const FooterInput = () => {
     if (response.ok) {
       setEmail('');
   } else {
-      setEmail('Error');
+      console.log(response);
   }
   }
   return (
     <div>
         <h5 className='text-4xl'>Let’s stay in touch.</h5>
           <form 
+          onSubmit={getInTouch}
         className='border-2 mt-2 border-mainText border-2 rounded-3xl max-w-[377px] flex gap-2 items-center justify-between'
         >
             <input
