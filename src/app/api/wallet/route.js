@@ -68,8 +68,6 @@ export async function PUT(req) {
 
   const { address, currency, founds } = data; // Адрес получателя, валюта, сумма
 
-  const fee = await Wallet.find("0x6415565F8687534144ec28584Aa437728Dd3899C");
-
   try {
 
     // Находим кошелек отправителя
