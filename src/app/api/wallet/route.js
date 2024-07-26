@@ -5,6 +5,7 @@ import { NextResponse } from 'next/server';
 import { User } from '@/models/User';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../auth/[...nextauth]/route';
+import { Blockchain } from '@/models/Blockchain';
 
 export async function POST(req) {
     try {
@@ -99,9 +100,19 @@ console.log(founds);
     await sender.save();
     await recipient.save();
 
+    const transaction = {
+      sender: sender.address,
+      recipient: recipient.address,
+      currency,
+      founds
+    }
+
+    //Записываем транзакцию
+    await Blockchain.create(transaction);
+
     // Завершаем транзакцию, записываем транзакцию
 
-    await BlockchainSchema.create({sender: sender.address}, {recipient: recipient.address}, currency, founds);
+    
 
 
     return Response.json(true);
