@@ -5,6 +5,7 @@ const OrderSchema = new Schema({
     userName: String,
     userWallet: String,
     amount: String,
+    purchaseName: String,
     paid: {type: Boolean, default: false},
 }, {timestamps: true});
 

@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FaWindowClose } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { signOut, useSession } from "next-auth/react";
@@ -16,6 +16,14 @@ const MarketplaceItemBox = ({ itemInfo, toggle }) => {
   const [error, setError] = useState(false);
   console.log(data);
   console.log(itemInfo);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (window.location.href.includes('canceled=1')) {
+        toast.error('Payment failed 😔');
+      }
+    }
+  }, []);
 
   async function buyItem() {
     setLoading(true);
@@ -42,8 +50,7 @@ const MarketplaceItemBox = ({ itemInfo, toggle }) => {
           setError(true);
         }
       } else if (itemInfo.category === "voucher" && session) {
-        itemInfo.price
-        fetch('/api/checkout', {
+        await fetch('/api/checkout', {
           method: 'POST',
           headers: {'Content-Type:':'application/json'},
           body: JSON.stringify({
