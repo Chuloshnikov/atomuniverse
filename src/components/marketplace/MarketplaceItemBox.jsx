@@ -14,6 +14,8 @@ const MarketplaceItemBox = ({ itemInfo, toggle }) => {
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState(false);
+  console.log(data);
+  console.log(itemInfo);
 
   async function buyItem() {
     setLoading(true);
@@ -44,7 +46,7 @@ const MarketplaceItemBox = ({ itemInfo, toggle }) => {
         fetch('/api/checkout', {
           method: 'POST',
           headers: {'Content-Type:':'application/json'},
-          body: JSON.stringofy({
+          body: JSON.stringify({
             data,
             itemInfo,
           }),
