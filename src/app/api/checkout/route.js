@@ -19,7 +19,7 @@ export async function POST(req) {
 
   const orderDoc = await Order.create({
     userEmail,
-    userName,
+    userName: data.name,
     userWallet: wallet.address,
     amount: itemInfo.price,
     purchaseName: itemInfo.name,
@@ -47,8 +47,8 @@ export async function POST(req) {
     line_items: stripeLineItems,
     mode: 'payment',
     customer_email: userEmail,
-    success_url: process.env.NEXTAUTH_URL + 'orders/' + orderDoc._id.toString() + '?clear-cart=1',
-    cancel_url: process.env.NEXTAUTH_URL + 'cart?canceled=1',
+    success_url: process.env.NEXTAUTH_URL + 'marketplace/' + orderDoc._id.toString(),
+    cancel_url: process.env.NEXTAUTH_URL + 'marketplace?canceled=1',
     metadata: {orderId:orderDoc._id.toString()},
     payment_intent_data: {
       metadata:{orderId:orderDoc._id.toString()},
