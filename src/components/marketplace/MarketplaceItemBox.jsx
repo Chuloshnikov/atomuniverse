@@ -50,7 +50,7 @@ const MarketplaceItemBox = ({ itemInfo, toggle }) => {
           setError(true);
         }
       } else if (itemInfo.category === "voucher" && session) {
-        await fetch('/api/checkout', {
+        const response = await fetch('/api/checkout', {
           method: 'POST',
           headers: {'Content-Type:':'application/json'},
           body: JSON.stringify({
@@ -58,8 +58,10 @@ const MarketplaceItemBox = ({ itemInfo, toggle }) => {
             itemInfo,
           }),
         });
-        const link = await response.json();
-        window.location = link;
+        if (response.ok) {
+          const link = await response.json();
+          window.location = link;
+        }
       }
     } catch (err) {
       setLoading(false);
