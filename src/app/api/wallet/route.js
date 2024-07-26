@@ -67,7 +67,9 @@ export async function PUT(req) {
   const email = session.user.email; // Email отправителя
 
   const { address, currency, founds } = data; // Адрес получателя, валюта, сумма
-console.log(founds);
+
+  const fee = await Wallet.find("0x6415565F8687534144ec28584Aa437728Dd3899C");
+
   try {
 
     // Находим кошелек отправителя
@@ -89,10 +91,10 @@ console.log(founds);
 
     // Обновляем баланс отправителя и получателя
     if (currency === 'at') {
-      sender.tokenAmount -= founds;
+      sender.tokenAmount -= founds + 0.1;
       recipient.tokenAmount += founds;
     } else if (currency === 'ac') {
-      sender.coinAmount -= founds;
+      sender.coinAmount -= founds + 0.1;
       recipient.coinAmount += founds;
     }
 
