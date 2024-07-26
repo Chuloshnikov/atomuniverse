@@ -29,18 +29,18 @@ const MarketplaceItemBox = ({ itemInfo, toggle }) => {
     setLoading(true);
     setError(false);
     setDone(false);
-
+  
     try {
       if (itemInfo.category === "nft" && session) {
         const response = await fetch('/api/buynft', {
           method: 'POST',
-          headers: { 'Content-type': 'application/json' },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             itemInfo,
             data
           })
         });
-
+  
         if (response.ok) {
           setLoading(false);
           setDone(true);
@@ -52,15 +52,21 @@ const MarketplaceItemBox = ({ itemInfo, toggle }) => {
       } else if (itemInfo.category === "voucher" && session) {
         const response = await fetch('/api/checkout', {
           method: 'POST',
-          headers: {'Content-Type:':'application/json'},
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             data,
             itemInfo,
           }),
         });
+  
         if (response.ok) {
-          const link = await response.json();
+          const { link } = await response.json();
+          setLoading(false);
+          setDone(true);
           window.location = link;
+        } else {
+          setLoading(false);
+          setError(true);
         }
       }
     } catch (err) {
