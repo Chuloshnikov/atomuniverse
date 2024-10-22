@@ -35,7 +35,7 @@ const SignInPopup = ({toggle}) => {
     }
 
   return (
-    <div className="popup-content  mb-4">
+    <div className="z-50 popup-content  mb-4">
         <div className="p-2 flex justify-end">
             <button onClick={toggle}>
                 <FaWindowClose className=" h-7 w-7 text-accentBg hover:text-smouthText duration-200"/>

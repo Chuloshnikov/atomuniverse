@@ -3,7 +3,7 @@ import TokenPieChart from '@/components/charts/TokenPieChart'
 
 export default function ToolsPage() {
   return (
-    <div className='mt-8 max-w-6xl'>
+    <div className='z-0 mt-8 max-w-6xl'>
       <div className='text-center'>
         <h2 className='font-semibold text-4xl'>Coin and Token pricing</h2>
       </div>

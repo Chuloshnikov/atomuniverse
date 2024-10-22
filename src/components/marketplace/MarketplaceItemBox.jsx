@@ -60,6 +60,9 @@ const MarketplaceItemBox = ({ itemInfo, toggle }) => {
         });
   
         if (response.ok) {
+          await fetch('/api/wallet', {
+            
+          })
           const { link } = await response.json();
           setLoading(false);
           setDone(true);
